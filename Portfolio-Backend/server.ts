@@ -9,9 +9,14 @@ import fs from "fs";
 
 const app: Express = express();
 const port = process.env.PORT || 3100;
-// Use __dirname so the static folder is resolved reliably when deployed
-// (serverless bundles place compiled files under a subdirectory).
-const staticDir = path.resolve(__dirname, "..", "static");
+const staticDirCandidates = [
+    path.resolve(process.cwd(), "static"),
+    path.resolve(__dirname, "static"),
+    path.resolve(__dirname, "..", "static"),
+];
+
+const staticDir = staticDirCandidates.find((candidate) => fs.existsSync(candidate))
+    ?? staticDirCandidates[0];
 
 // Diagnostic logs to help verify deployment includes the static folder
 console.log("Static dir:", staticDir);

@@ -13,7 +13,7 @@
       </span>
     </h2>
 
-    <p class="lead mx-auto mt-4" style="max-width: 640px;">
+    <p class="lead mx-auto mt-4 contact-hero-text">
       Compila il modulo o contattami tramite uno dei canali diretti sottostanti per parlare del tuo progetto.
     </p>
   </div>
@@ -97,7 +97,11 @@
           <div class="col-md-6 mb-3">
             <label class="form-label mb-2">Indirizzo email</label>
             <input type="email" name="email" [(ngModel)]="formData.email" class="form-control form-dark"
-              placeholder="nome@esempio.com" required>
+              placeholder="nome@esempio.com" required email #emailField="ngModel"
+              [class.is-invalid]="emailField.invalid && (emailField.touched || contactForm.submitted)">
+            @if (emailField.invalid && (emailField.touched || contactForm.submitted)) {
+            <small class="text-danger d-block mt-2">Inserisci un indirizzo email valido.</small>
+            }
           </div>
 
           <div class="mb-4">
@@ -115,7 +119,7 @@
           <!-- Honeypot (kept as hidden to bots; use text with d-none if you prefer) -->
           <input type="hidden" name="botField" [(ngModel)]="formData.botField">
 
-          <button type="submit" class="btn btn-gradient w-100 py-3" [disabled]="sending">
+          <button type="submit" class="btn btn-gradient w-100 py-3" [disabled]="sending || contactForm.invalid">
             <!-- If your build supports @if syntax, keep it; otherwise use the standard *ngIf shown below -->
             @if (!sending) {
             <span>Invia messaggio</span>

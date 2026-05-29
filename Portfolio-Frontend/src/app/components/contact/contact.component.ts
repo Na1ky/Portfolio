@@ -19,6 +19,7 @@ export class ContactComponent {
   sending = false;
   resultMessage = '';
   resultSuccess = false;
+  emailError = '';
 
   private EMAILJS_USER_ID = 'g62lC2JYR-Ph4WY__';
   private EMAILJS_SERVICE_ID = 'service_rw7rpob';
@@ -40,6 +41,10 @@ export class ContactComponent {
     }
   }
 
+  private isValidEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
   async sendEmail() {
     if (!this.formData.fullName || !this.formData.email || !this.formData.subject || !this.formData.message) {
       this.resultSuccess = false;
@@ -47,6 +52,16 @@ export class ContactComponent {
       this.cdr.detectChanges();
       return;
     }
+
+    if (!this.isValidEmail(this.formData.email)) {
+      this.resultSuccess = false;
+      this.resultMessage = 'Inserisci un indirizzo email valido.';
+      this.emailError = 'Formato email non valido.';
+      this.cdr.detectChanges();
+      return;
+    }
+
+    this.emailError = '';
 
     if (this.formData.botField) {
       this.resultSuccess = false;
@@ -76,6 +91,7 @@ export class ContactComponent {
         this.resultSuccess = true;
         this.resultMessage = 'Messaggio inviato! Grazie.';
         this.formData = { fullName: '', email: '', subject: '', message: '', botField: '' };
+        this.emailError = '';
 
         this.cdr.detectChanges();
 

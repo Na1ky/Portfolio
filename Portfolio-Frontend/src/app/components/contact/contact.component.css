@@ -13,6 +13,10 @@ body {
   font-size: 1.3rem;
 }
 
+.contact-hero-text {
+  max-width: 640px;
+}
+
 /* Badge */
 .badge-glow {
   background: rgba(159, 18, 57, 0.18);
@@ -40,6 +44,7 @@ body {
   background: rgba(40, 12, 20, 0.7);
   border: 1px solid rgba(253, 164, 175, 0.12);
   border-radius: 32px;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
