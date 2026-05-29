@@ -5,10 +5,17 @@ import certificatesRouter from "./routes/certificates";
 import technologiesRouter from "./routes/technologies";
 import projectsRouter from "./routes/projects";
 import path from "path";
+import fs from "fs";
 
 const app: Express = express();
 const port = process.env.PORT || 3100;
-const staticDir = path.resolve(process.cwd(), "static");
+// Use __dirname so the static folder is resolved reliably when deployed
+// (serverless bundles place compiled files under a subdirectory).
+const staticDir = path.resolve(__dirname, "..", "static");
+
+// Diagnostic logs to help verify deployment includes the static folder
+console.log("Static dir:", staticDir);
+console.log("Static exists:", fs.existsSync(staticDir));
 
 // Middleware
 app.use(corsMiddleware);
