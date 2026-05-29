@@ -1,4 +1,4 @@
-import { Component, signal, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, signal, AfterViewInit, ElementRef, ViewChild, OnInit, Input } from '@angular/core';
 import { SeoService } from '../../services/seo.service';
 import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../../services/data.service';
@@ -14,6 +14,7 @@ import { TerminalLoaderComponent } from '../terminal-loader/terminal-loader.comp
   ]
 })
 export class AboutComponent implements AfterViewInit, OnInit {
+  @Input() embedded = false;
   @ViewChild('statsContainer') statsContainer!: ElementRef;
 
   stats = [
