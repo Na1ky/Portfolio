@@ -1,0 +1,21 @@
+<div class="certificate-card" data-aos="fade-up">
+  <div class="card-image">
+    <img [src]="certificate.image_url" [alt]="certificate.name">
+    <div class="image-overlay"></div>
+  </div>
+
+  <div class="card-content">
+    <h3>{{ certificate.name }}</h3>
+
+    <div class="card-details">
+      <p><strong>Emesso da:</strong> {{ certificate.issuer_name }}</p>
+      <p><strong>Rilasciato:</strong> {{ certificate.date_achieved | date:'MMM yyyy' }}</p>
+    </div>
+
+    <div class="card-footer">
+      <a [href]="certificate.pdf_url" target="_blank" class="details-btn">
+        Dettagli →
+      </a>
+    </div>
+  </div>
+</div>

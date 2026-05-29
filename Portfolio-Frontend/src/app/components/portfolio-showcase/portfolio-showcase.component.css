@@ -1,0 +1,237 @@
+/* Colori e variabili base */
+:root {
+  --dark-bg: #110e0f;
+  --card-bg: #1c191a;
+  --primary-red: #da3747;
+  --text-light: #fefefe;
+  --text-secondary-light: #aaa;
+  --border-color: #333;
+  --primary-glow: rgba(218, 55, 71, 0.6);
+}
+
+
+.title-main {
+  margin-top: 1.5rem;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #ff4d4d;
+  text-shadow: 0 0 20px rgba(255,50,50,0.7);
+}
+
+/* Tab Container potenziato */
+.custom-tabs-group {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 50px; /* Forma a pillola più moderna */
+  display: inline-flex;
+  gap: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.custom-tab-btn {
+  background: transparent;
+  color: var(--text-secondary-light);
+  border: none;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 40px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effetto di selezione "rimbalzante" */
+.custom-tab-btn.active {
+  background: linear-gradient(
+    135deg,
+    #9b1b30 0%,   /* Chili Pepper red */
+    #7b1113 50%,  /* Deep Red */
+    #5a0d0d 100%  /* Dark Brick */
+  );
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(155, 27, 48, 0.3);
+}
+
+/* Animazione al click (Ripple effect semplificato) */
+.custom-tab-btn:active {
+  transform: scale(0.95);
+}
+
+/* --- VARIABILI AGGIORNATE --- */
+:root {
+  --dark-bg: #0d0b0c;          /* Nero più profondo per il fondo pagina */
+  --section-bg: #161314;       /* Sfondo leggermente più chiaro per le sezioni */
+  --card-bg: #1c191a;
+  --primary-red: #da3747;
+  --primary-glow: rgba(218, 55, 71, 0.4);
+  --text-light: #fefefe;
+  --text-secondary: #aaa;
+  --border-light: rgba(255, 255, 255, 0.08);
+}
+
+/* --- CONTAINER PRINCIPALE --- */
+.portfolio-container {
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  max-width: 1400px; /* Allargato leggermente */
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+/* --- SEZIONE CATEGORIA (Il "Blocco" differente) --- */
+.category-group {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02); /* Quasi trasparente */
+  backdrop-filter: blur(15px); /* Effetto vetro sfocato */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 50px 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.category-group:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(218, 55, 71, 0.5);
+}
+
+/* --- HEADER DELLA CATEGORIA --- */
+.category-header-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  margin-bottom: 45px; /* Più spazio prima delle card */
+}
+
+.category-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.category-index {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  color: var(--primary-red);
+  font-weight: 800;
+  border: 1px solid var(--primary-red);
+  padding: 5px 10px;
+  border-radius: 6px;
+  line-height: 1;
+  margin-top: 5px;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.category-subtitle {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.category-label {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff4d4d;
+  text-shadow: 0 0 20px rgba(255,50,50,0.7);
+  font-size: clamp(1.4rem, 4vw, 2rem); /* Font dinamico */
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Linea decorativa cyber */
+.category-line-deco {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  opacity: 0.6;
+}
+
+.line-main {
+  height: 1px;
+  flex-grow: 1;
+  background: linear-gradient(90deg, var(--primary-red), transparent);
+}
+
+.line-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--primary-red);
+}
+
+/* --- GRIGLIA TECH (Risoluzione schiacciamento) --- */
+.tech-grid {
+  display: grid;
+  /* Minimo 280px per dare larghezza orizzontale alle card */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px; /* Più spazio tra le card */
+}
+
+/* Animazione di focus sulle card */
+.tech-item-anim {
+  transition: all 0.3s ease;
+}
+
+/* Alternative hover effect: dim non-hovered items with subtle scale down and slight grayscale */
+.tech-grid:hover .tech-item-anim:not(:hover) {
+  filter: grayscale(0.7) brightness(0.6);
+  opacity: 0.5;
+  transform: scale(0.94);
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Ensure hovered item stands out with full brightness and scale */
+.tech-item-anim:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* --- FIX PER LE CARD (Se necessario forzare il layout) --- */
+app-tech-stack-card {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+app-tech-stack-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- RESPONSIVITÀ --- */
+@media (max-width: 768px) {
+  .category-group {
+    padding: 30px 20px;
+  }
+
+  .category-header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .category-line-deco {
+    width: 100%;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr; /* Una sola colonna su mobile per massima leggibilità */
+  }
+}

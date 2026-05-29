@@ -1,0 +1,112 @@
+  .certificate-card {
+    background-color: #0f0f13;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+  }
+
+  /* Effetto Neon Border al passaggio */
+  .certificate-card:hover {
+    transform: translateY(-8px);
+    border-color: #d13d42;
+    box-shadow: 0 0 20px rgba(209, 61, 66, 0.3),
+    inset 0 0 12px rgba(209, 61, 66, 0.1);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .certificate-card:hover .card-image img {
+    transform: scale(1.08);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-content h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    /* Mantiene l'allineamento dei bottoni */
+    min-height: 3.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-details {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-details p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin: 0.25rem 0;
+  }
+
+  .card-details strong {
+    color: #d13d42; /* Accento neon per i titoli interni */
+    font-weight: 500;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .pdf-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+  }
+
+  .pdf-link:hover {
+    opacity: 1;
+    color: #d13d42;
+  }
+
+  .details-btn {
+    background: #1a1a1e;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .details-btn:hover {
+    background: #d13d42;
+    border-color: #d13d42;
+    box-shadow: 0 0 15px rgba(209, 61, 66, 0.5);
+  }

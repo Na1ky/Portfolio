@@ -1,0 +1,8 @@
+<!-- AppComponent -->
+@if (loading) {
+  <app-loading (loadingfinished)="onLoadingFinished($event)"></app-loading>
+} @else {
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+}

@@ -1,0 +1,53 @@
+/* NAVBAR GLASS */
+.custom-navbar {
+  background: rgba(20, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 80, 80, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
+}
+/* LOGO */
+.custom-navbar .navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffbdbd;
+}
+
+/* LINK NAV */
+.custom-navbar .nav-link {
+  color: #f0dada;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Underline animata */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff4444;
+  transition: width 0.3s;
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffffff;
+}
+
+/* BURGER MENU */
+.navbar-toggler {
+  border-color: rgba(255, 80, 80, 0.5);
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0.8) sepia(1) hue-rotate(-20deg) saturate(3);
+}

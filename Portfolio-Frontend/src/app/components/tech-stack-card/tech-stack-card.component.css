@@ -1,0 +1,191 @@
+/* Root colors for dark neon theme */
+:root {
+  --bg-dark: #121212;
+  --bg-darker: #0b0b0b;
+  --neon-pink: #ff00cc;
+  --neon-blue: #00eaff;
+  --neon-green: #39ff14;
+  --neon-yellow: #fff700;
+  --text-light: #e0e0e0;
+  --text-dim: #7a7a7a;
+  --accent-red: #ff0055;
+  --shadow-glow: 0 0 8px var(--neon-pink), 0 0 15px var(--neon-pink);
+}
+
+/* Container */
+.tech-card {
+  background: var(--bg-darker);
+  border: 2px solid var(--neon-pink);
+  border-radius: 12px;
+  color: var(--text-light);
+  width: 320px;
+  padding: 20px;
+  box-shadow: var(--shadow-glow);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 12px var(--neon-blue), 0 0 25px var(--neon-blue);
+}
+
+/* Card top section flex */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Icon box - circular neon border */
+.icon-box {
+  background: var(--bg-dark);
+  border: 2.5px solid var(--neon-pink);
+  padding: 8px;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 8px var(--neon-pink);
+  flex-shrink: 0;
+}
+
+.icon-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px var(--neon-pink));
+}
+
+/* Title box with category and name */
+.title-box span {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.title-box h4 {
+  margin: 2px 0 0;
+  font-size: 1.2rem;
+  color: var(--neon-pink);
+  text-shadow:
+    0 0 6px var(--neon-pink),
+    0 0 12px var(--neon-pink);
+}
+
+/* Mastery box: proficiency text + progress bar */
+.mastery-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Proficiency info flex */
+.mastery-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.mastery-info .text-dim {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.mastery-info .accent-red {
+  color: var(--accent-red);
+  text-shadow: 0 0 5px var(--accent-red);
+  font-size: 0.9rem;
+}
+
+/* Progress bar outer */
+.bar-outer {
+  background-color: #222222;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 5px #000;
+}
+
+/* Progress bar inner neon */
+.bar-inner {
+  height: 100%;
+  background:
+    linear-gradient(90deg, var(--neon-pink), var(--neon-yellow), var(--neon-green));
+  box-shadow:
+    0 0 8px var(--neon-pink),
+    0 0 15px var(--neon-yellow),
+    0 0 20px var(--neon-green);
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease;
+}
+
+/* Footer with icon and projects count */
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neon-blue);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-shadow: 0 0 4px var(--neon-blue);
+}
+
+.card-footer i {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 0 3px var(--neon-blue));
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+  .tech-card {
+    width: 100%;
+    padding: 15px;
+  }
+  .icon-box {
+    width: 48px;
+    height: 48px;
+  }
+  .icon-box img {
+    width: 32px;
+    height: 32px;
+  }
+  .title-box h4 {
+    font-size: 1rem;
+  }
+  .mastery-info .text-dim,
+  .mastery-info .accent-red {
+    font-size: 0.85rem;
+  }
+  .card-footer {
+    font-size: 0.9rem;
+  }
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #aaa;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.dot-blink {
+  width: 6px;
+  height: 6px;
+  background: #00ff88; /* Verde neon per "attivo" */
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff88;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink { 50% { opacity: 0.3; } }

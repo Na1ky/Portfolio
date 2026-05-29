@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  padding: 25px 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;      /* Centro tutto in colonna */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+
+.footer-content h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.footer-content p {
+  margin: 5px 0 12px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-icons a {
+  margin: 0 12px;
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+

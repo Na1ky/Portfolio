@@ -1,0 +1,141 @@
+<section class="container my-6 position-relative">
+
+  <!-- HERO -->
+  <div class="text-center mb-7" data-aos="fade-up">
+    <span class="badge badge-glow mb-4 d-inline-block">
+      <h5>Disponibile per nuovi progetti</h5>
+    </span>
+
+    <h2 class="display-3 fw-bold font-poppins mb-4">
+      Hai un'idea?<br>
+      <span class="gradient-text d-inline-block mt-2">
+        Trasformiamola in realtà.
+      </span>
+    </h2>
+
+    <p class="lead mx-auto mt-4" style="max-width: 640px;">
+      Compila il modulo o contattami tramite uno dei canali diretti sottostanti per parlare del tuo progetto.
+    </p>
+  </div>
+
+  <div class="row g-6 align-items-stretch">
+
+    <!-- CONTACT DETAILS -->
+    <div class="col-lg-5" data-aos="fade-right">
+      <h4 class="section-title mb-5">
+        Informazioni di contatto
+      </h4>
+
+      <div class="contact-card mb-4">
+        <i class="bi bi-envelope"></i>
+        <div>
+          <small>Email: </small>
+          <strong>nicolasdominici.lav&#64;gmail.com</strong>
+        </div>
+      </div>
+
+      <div class="contact-card mb-4">
+        <i class="bi bi-telephone"></i>
+        <div>
+          <small>Telefono: </small>
+          <strong>+39 342 571 2220</strong>
+        </div>
+      </div>
+
+      <div class="contact-card mb-5">
+        <i class="bi bi-geo-alt"></i>
+        <div>
+          <small>Località: </small>
+          <strong>Torino, Italia</strong>
+        </div>
+      </div>
+
+      <h6 class="mb-4">
+        Seguimi
+      </h6>
+
+      <div class="d-flex gap-4 mb-6">
+        <a class="social-btn text-decoration-none" href="https://github.com/Na1ky" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a class="social-btn text-decoration-none" href="https://www.linkedin.com/in/nicolas-dominici-6981153a4/"
+          aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <!-- QUICK CHAT -->
+      <div class="chat-box mt-6" data-aos="zoom-in">
+        <i class="bi bi-chat-dots chat-bg-icon"></i>
+
+        <h5 class="mb-3">
+          Preferisci una chat veloce?
+        </h5>
+
+        <p class="mb-4">
+          Di solito rispondo più velocemente su WhatsApp.
+        </p>
+
+        <div class="d-flex gap-4">
+          <a href="https://wa.me/393425712220" class="btn btn-light btn-sm px-4">
+            <i class="bi bi-whatsapp me-1"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="col-lg-7" data-aos="fade-left">
+      <div class="glass-card p-5 p-lg-6 h-100">
+        <form id="contactForm" (ngSubmit)="sendEmail()" #contactForm="ngForm" novalidate>
+          <div class="col-md-6 mb-3">
+            <label class="form-label mb-2">Nome e cognome</label>
+            <input type="text" name="fullName" [(ngModel)]="formData.fullName" class="form-control form-dark"
+              placeholder="Mario Rossi" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label mb-2">Indirizzo email</label>
+            <input type="email" name="email" [(ngModel)]="formData.email" class="form-control form-dark"
+              placeholder="nome@esempio.com" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label mb-2">Oggetto</label>
+            <input type="text" name="subject" [(ngModel)]="formData.subject" class="form-control form-dark"
+              placeholder="Richiesta progetto" required>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label mb-2">Messaggio</label>
+            <textarea name="message" [(ngModel)]="formData.message" class="form-control form-dark" rows="6"
+              placeholder="Raccontami la tua idea…" required></textarea>
+          </div>
+
+          <!-- Honeypot (kept as hidden to bots; use text with d-none if you prefer) -->
+          <input type="hidden" name="botField" [(ngModel)]="formData.botField">
+
+          <button type="submit" class="btn btn-gradient w-100 py-3" [disabled]="sending">
+            <!-- If your build supports @if syntax, keep it; otherwise use the standard *ngIf shown below -->
+            @if (!sending) {
+            <span>Invia messaggio</span>
+            } @else {
+            <span>Invio…</span>
+            }
+          </button>
+
+          @if (resultMessage) {
+          <div class="mt-3">
+            <small [ngClass]="{
+                'message-success': resultSuccess,
+                'message-error': !resultSuccess
+              }" class="message-dark">
+              {{ resultMessage }}
+            </small>
+          </div>
+          }
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<div class="hero-container d-flex align-items-center container-fluid">
+  <div class="row align-items-center justify-content-between w-100 m-lg-5 text-center text-lg-start m-0">
+    <!-- TEXT SECTION -->
+    <div class="col-lg-6 mb-5 mb-lg-0 text-section ms-lg-5" data-aos="fade-right" data-aos-delay="200">
+
+      <span class="badge-custom">✨Spinto dalla curiosità e dall'innovazione</span>
+
+      <h1 class="title-main">
+        Sviluppatore Frontend
+        <br />
+        <span class="highlight">Ingegnere del Software</span>
+      </h1>
+
+      <p class="subtitle">
+        Realizzo esperienze digitali moderne, affidabili e intuitive — dove il design pulito<br>
+        incontra performance e precisione.
+      </p>
+
+      <div class="tech-stack my-4">
+        <span class="tag me-lg-3">Angular</span>
+        <span class="tag me-lg-3">Node.js</span>
+        <span class="tag me-lg-3">Typescript</span>
+        <span class="tag me-lg-3">Bootstrap</span>
+      </div>
+
+      <div class="buttons mt-4">
+        <button class="btn btn-primary me-lg-3 neon-red neon-red-hover" [routerLink]="['/portfolio']">Visualizza
+          progetti</button>
+        <button class="btn btn-outline-light neon-red neon-red-hover" [routerLink]="['/contact']">Contattami</button>
+      </div>
+    </div>
+
+    <!-- IMAGE SECTION -->
+    <div class="col-lg-5 text-center ms-lg-5" data-aos="fade-left" data-aos-delay="300">
+      <img src="/assets/home.gif" class="hero-img img-fluid" alt="Illustrazione laptop">
+    </div>
+  </div>
+</div>
+
+<section id="about" class="section-block section-about">
+  <app-about></app-about>
+</section>
