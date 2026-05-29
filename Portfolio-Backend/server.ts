@@ -1,9 +1,9 @@
 import express, { Express, Request, Response } from "express";
-import { connectDB, disconnectDB } from "./config/database";
-import { corsMiddleware, errorHandler } from "./middleware/corsMiddleware";
-import certificatesRouter from "./routes/certificates";
-import technologiesRouter from "./routes/technologies";
-import projectsRouter from "./routes/projects";
+import { connectDB, disconnectDB } from "./src/config/database";
+import { corsMiddleware, errorHandler } from "./src/middleware/corsMiddleware";
+import certificatesRouter from "./src/routes/certificates";
+import technologiesRouter from "./src/routes/technologies";
+import projectsRouter from "./src/routes/projects";
 import path from "path";
 import fs from "fs";
 
