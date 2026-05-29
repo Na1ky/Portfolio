@@ -5,10 +5,16 @@
       "src": "src/server.ts",
       "use": "@vercel/node"
     }
-  ,
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.ts"
+    }
+  ],
   "headers": [
     {
-      "source": "\\/(.*)",
+      "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "https://nicolas-dominici.it" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,POST,PUT,DELETE" },
@@ -16,11 +22,5 @@
       ]
     }
   ]
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/server.ts"
-    }
-  ]
+  
 }
