@@ -1,4 +1,5 @@
 import { Component, signal, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { TerminalLoaderComponent } from '../terminal-loader/terminal-loader.component';
@@ -21,9 +22,18 @@ export class AboutComponent implements AfterViewInit, OnInit {
     { label: 'CERTIFICAZIONI', icon: '🏆', value: 0, displayValue: signal(0), sublabel: 'VALIDATI' },
   ];
 
-  constructor(public dataService: DataService, private router: Router) { }
+  constructor(public dataService: DataService, private router: Router, private seoService: SeoService) { }
 
   async ngOnInit() {
+    if (!this.embedded) {
+      this.seoService.setPageSeo({
+        title: 'Dominici Nicolas | About Me',
+        description: 'Sviluppatore Frontend e Ingegnere del Software. Qui trovi bio, esperienza e competenze tecniche di Dominici Nicolas.',
+        url: 'https://nicolas-dominici.it/about',
+        keywords: 'Dominici Nicolas, about, frontend developer, software engineer',
+        locale: 'it_IT'
+      });
+    }
     try {
       this.dataService.show();
 

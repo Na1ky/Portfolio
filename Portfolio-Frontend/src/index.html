@@ -14,6 +14,49 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Structured data: site navigation and search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SiteNavigationElement",
+        "name": "Main navigation",
+        "url": "https://nicolas-dominici.it",
+        "about": [
+          {
+            "@type": "WebPage",
+            "name": "Info",
+            "url": "https://nicolas-dominici.it/about",
+            "description": "Breve biografia e informazioni professionali su Dominici Nicolas, sviluppatore frontend e ingegnere del software."
+          },
+          {
+            "@type": "WebPage",
+            "name": "Portfolio",
+            "url": "https://nicolas-dominici.it/portfolio",
+            "description": "Progetti selezionati, demo e dettagli tecnici dei lavori realizzati da Dominici Nicolas."
+          },
+          {
+            "@type": "WebPage",
+            "name": "Contact",
+            "url": "https://nicolas-dominici.it/contact",
+            "description": "Modulo di contatto, informazioni di contatto dirette e link ai profili social per richiedere servizi o collaborazioni."
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "url": "https://nicolas-dominici.it",
+        "name": "Dominici Nicolas",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nicolas-dominici.it/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
