@@ -19,7 +19,7 @@ export class DataService {
 
   async getCertificates() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/certificates');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/certificates');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
@@ -36,7 +36,7 @@ export class DataService {
 
   async getCertificatesCount() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/certificates/count');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/certificates/count');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
@@ -53,7 +53,7 @@ export class DataService {
 
   async getProjects() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/projects');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/projects');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
@@ -70,7 +70,7 @@ export class DataService {
 
   async getProjectsCount() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/projects/count');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/projects/count');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
@@ -87,7 +87,7 @@ export class DataService {
 
   async getTechnologies() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/technologies');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/technologies');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
@@ -104,7 +104,7 @@ export class DataService {
 
   async getCategories() {
     try {
-      const response = await fetch('https://portfolio-server-ke9f.onrender.com/api/technologies/categories');
+      const response = await fetch('https://portfolio-server-green-beta.vercel.app//api/technologies/categories');
 
       if (!response.ok) {
         console.error('Internal Server error', response.statusText);
