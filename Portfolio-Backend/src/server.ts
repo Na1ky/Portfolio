@@ -19,6 +19,7 @@ console.log("Static exists:", fs.existsSync(staticDir));
 
 // Middleware
 app.use(corsMiddleware);
+app.options("*", corsMiddleware);
 app.use(express.json());
 app.use("/static", express.static(staticDir));
 app.use("/img", express.static(path.join(staticDir, "img")));

@@ -2,7 +2,19 @@ import cors from "cors";
 import { Request, Response, NextFunction } from "express";
 
 const clientUrl = process.env.CLIENT_URL || "http://localhost:4200";
-const allowedOrigins = new Set<string>([clientUrl]);
+const allowedOrigins = new Set<string>([
+  clientUrl,
+  "https://nicolas-dominici.it",
+  "https://www.nicolas-dominici.it",
+  "http://localhost:4200",
+  "http://127.0.0.1:4200",
+]);
+
+const normalizedClientUrl = clientUrl.endsWith("/")
+  ? clientUrl.slice(0, -1)
+  : clientUrl;
+
+allowedOrigins.add(normalizedClientUrl);
 
 try {
   const parsedUrl = new URL(clientUrl);
