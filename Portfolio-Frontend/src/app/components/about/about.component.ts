@@ -3,6 +3,7 @@ import { SeoService } from '../../services/seo.service';
 import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { TerminalLoaderComponent } from '../terminal-loader/terminal-loader.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,8 @@ import { TerminalLoaderComponent } from '../terminal-loader/terminal-loader.comp
   styleUrls: ['./about.component.css'],
   imports: [
     RouterLink,
-    TerminalLoaderComponent
+    TerminalLoaderComponent,
+    TranslateModule
   ]
 })
 export class AboutComponent implements AfterViewInit, OnInit {
@@ -18,9 +20,9 @@ export class AboutComponent implements AfterViewInit, OnInit {
   @ViewChild('statsContainer') statsContainer!: ElementRef;
 
   stats = [
-    { label: 'PROGETTI', icon: '💻', value: 0, displayValue: signal(0), sublabel: 'REALIZZATI' },
-    { label: 'ESPERIENZA', icon: '🌐', value: 0, displayValue: signal(0), sublabel: 'ANNI' },
-    { label: 'CERTIFICAZIONI', icon: '🏆', value: 0, displayValue: signal(0), sublabel: 'VALIDATI' },
+    { label: 'PROJECTS', icon: '💻', value: 0, displayValue: signal(0), sublabel: 'PROJECTS_SUB' },
+    { label: 'EXPERIENCE', icon: '🌐', value: 0, displayValue: signal(0), sublabel: 'EXPERIENCE_SUB' },
+    { label: 'CERTS', icon: '🏆', value: 0, displayValue: signal(0), sublabel: 'CERTS_SUB' },
   ];
 
   constructor(public dataService: DataService, private router: Router, private seoService: SeoService) { }
@@ -29,7 +31,7 @@ export class AboutComponent implements AfterViewInit, OnInit {
     if (!this.embedded) {
       this.seoService.setPageSeo({
         title: 'Dominici Nicolas | About Me',
-        description: 'Sviluppatore Frontend e Ingegnere del Software. Qui trovi bio, esperienza e competenze tecniche di Dominici Nicolas.',
+        description: 'Software & Network Engineer, Tech Specialist. Scopri il mio profilo, competenze in sviluppo, cybersecurity, reti e automazione.',
         url: 'https://nicolas-dominici.it/about',
         keywords: 'Dominici Nicolas, about, frontend developer, software engineer',
         locale: 'it_IT'

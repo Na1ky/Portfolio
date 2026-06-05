@@ -1,14 +1,28 @@
 import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+  constructor(public translate: TranslateService) {
+    const savedLang = localStorage.getItem('lang') || 'it';
+    translate.use(savedLang);
+  }
 
+  get currentLang(): string {
+    return this.translate.getCurrentLang();
+  }
+
+  switchLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
 }

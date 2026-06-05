@@ -3,30 +3,28 @@
     <!-- TEXT SECTION -->
     <div class="col-lg-6 mb-5 mb-lg-0 text-section ms-lg-5" data-aos="fade-right" data-aos-delay="200">
 
-      <span class="badge-custom">✨Spinto dalla curiosità e dall'innovazione</span>
+      <span class="badge-custom" [innerHTML]="'HOME.BADGE' | translate"></span>
 
       <h1 class="title-main">
-        Sviluppatore Frontend
+        {{ 'HOME.TITLE_1' | translate }}
         <br />
-        <span class="highlight">Ingegnere del Software</span>
+        <span class="highlight">{{ 'HOME.TITLE_2' | translate }}</span>
       </h1>
 
       <p class="subtitle">
-        Realizzo esperienze digitali moderne, affidabili e intuitive — dove il design pulito<br>
-        incontra performance e precisione.
+        {{ 'HOME.SUBTITLE_1' | translate }}<br>
+        {{ 'HOME.SUBTITLE_2' | translate }}
       </p>
 
       <div class="tech-stack my-4">
-        <span class="tag me-lg-3">Angular</span>
-        <span class="tag me-lg-3">Node.js</span>
-        <span class="tag me-lg-3">Typescript</span>
-        <span class="tag me-lg-3">Bootstrap</span>
+        <span class="tag me-lg-3">Full Stack (.NET/MEAN)</span>
+        <span class="tag me-lg-3">Sistemi & Reti</span>
+        <span class="tag me-lg-3">Automazione (PLC)</span>
       </div>
 
       <div class="buttons mt-4">
-        <button class="btn btn-primary me-lg-3 neon-red neon-red-hover" [routerLink]="['/portfolio']">Visualizza
-          progetti</button>
-        <button class="btn btn-outline-light neon-red neon-red-hover" [routerLink]="['/contact']">Contattami</button>
+        <button class="btn btn-primary me-lg-3 neon-red neon-red-hover" [routerLink]="['/portfolio']">{{ 'HOME.BTN_PORTFOLIO' | translate }}</button>
+        <button class="btn btn-outline-light neon-red neon-red-hover" [routerLink]="['/contact']">{{ 'HOME.BTN_CONTACT' | translate }}</button>
       </div>
     </div>
 

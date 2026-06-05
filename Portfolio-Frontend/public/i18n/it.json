@@ -1,0 +1,32 @@
+{
+  "NAVBAR": {
+    "ABOUT": "About",
+    "PORTFOLIO": "Portfolio",
+    "CONTACT": "Contatti"
+  },
+  "HOME": {
+    "BADGE": "✨ Passione, Innovazione & Ingegneria",
+    "TITLE_1": "Tech Specialist",
+    "TITLE_2": "Software & Network Engineer",
+    "SUBTITLE_1": "Sviluppo esperienze web affidabili, progetto infrastrutture di rete",
+    "SUBTITLE_2": "e gestisco sistemi complessi — unendo codice e automazione.",
+    "BTN_PORTFOLIO": "Visualizza progetti",
+    "BTN_CONTACT": "Contattami"
+  },
+  "ABOUT": {
+    "SYSTEM_PROFILE": "Profilo di sistema",
+    "SUBTITLE": "Software & Network Engineer / Tech Specialist",
+    "DESCRIPTION": "Sono uno studente di informatica appassionato di tecnologia fin da giovane. Negli anni ho imparato tanto e ora sono in grado di spaziare dalla progettazione e amministrazione di Sistemi e Reti, allo sviluppo di architetture web (stack MEAN, .NET), fino all'automazione industriale (PLC, SCADA). Inoltre, nutro una profonda passione per la <strong class=\"highlight\">Cybersecurity</strong>, che mi spinge a creare soluzioni sempre più sicure e affidabili.",
+    "QUOTE": "Dalla riga di codice al protocollo di routing, affronto le sfide ingegneristiche con una visione sistemica e orientata alla sicurezza.",
+    "BTN_CV": "Scarica CV",
+    "BTN_PORTFOLIO": "Visualizza progetti →",
+    "STATS": {
+      "PROJECTS": "PROGETTI",
+      "PROJECTS_SUB": "REALIZZATI",
+      "EXPERIENCE": "ESPERIENZA",
+      "EXPERIENCE_SUB": "ANNI",
+      "CERTS": "CERTIFICAZIONI",
+      "CERTS_SUB": "VALIDATI"
+    }
+  }
+}

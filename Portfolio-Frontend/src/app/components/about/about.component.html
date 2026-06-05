@@ -9,30 +9,28 @@
     <div class="right-content w-75" data-aos-delay="400" data-aos="fade-left">
       <div class="top-content">
         <div class="section-label" data-aos="zoom-in" data-aos-delay="300"><span class="terminal-icon">[>]</span> <span
-            class="label-text">Profilo di sistema</span>
+            class="label-text">{{ 'ABOUT.SYSTEM_PROFILE' | translate }}</span>
         </div>
         <h1 class="main-title" data-aos="zoom-in" data-aos-delay="400">Nicolas <span class="red">Dominici</span>
         </h1>
-        <h2 class="subtitle" data-aos="zoom-in" data-aos-delay="500">Sviluppatore Frontend <span class="slash">/</span>
-          Ingegnere del Software</h2>
-        <p class="description" data-aos="zoom-in" data-aos-delay="600"> Sono uno studente di informatica e networking
-          appassionato di tecnologia, sicurezza e sviluppo moderno e pulito. Amo progettare sistemi veloci, stabili ed
-          efficienti — unendo curiosità, precisione e una forte voglia di crescere. </p>
+        <h2 class="subtitle" data-aos="zoom-in" data-aos-delay="500">{{ 'ABOUT.SUBTITLE' | translate }}</h2>
+        <p class="description" data-aos="zoom-in" data-aos-delay="600" [innerHTML]="'ABOUT.DESCRIPTION' | translate">
+        </p>
         <div class="quote-box" data-aos="zoom-in" data-aos-delay="600"><span class="quote-mark">"</span>
-          <p>Affronto ogni progetto con curiosità e determinazione, trasformando le idee in esperienze digitali solide.
+          <p>{{ 'ABOUT.QUOTE' | translate }}
           </p>
         </div>
         <div #statsContainer class="stats-row d-flex flex-row mt-4"> @for (stat of stats; track stat.label) {
           <div class="stat-card" data-aos="zoom-in" data-aos-delay="1000"><span class="stat-icon">{{ stat.icon }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
+            <span class="stat-label">{{ 'ABOUT.STATS.' + stat.label | translate }}</span>
             <div class="stat-value">{{ stat.displayValue() }} </div>
-            <span class="stat-sublabel">{{ stat.sublabel }}</span>
+            <span class="stat-sublabel">{{ 'ABOUT.STATS.' + stat.sublabel | translate }}</span>
           </div>
           }
         </div>
         <div class="action-buttons mt-lg-4" data-aos="zoom-in" data-aos-delay="600">
-          <button class="btn-outline p-lg-3 p-2" (click)="goToCv()">Scarica CV</button>
-          <button class="btn-primary" routerLink="/portfolio">Visualizza progetti →</button>
+          <button class="btn-outline p-lg-3 p-2" (click)="goToCv()">{{ 'ABOUT.BTN_CV' | translate }}</button>
+          <button class="btn-primary" routerLink="/portfolio">{{ 'ABOUT.BTN_PORTFOLIO' | translate }}</button>
         </div>
       </div>
     </div>

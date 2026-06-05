@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { SeoService } from '../../services/seo.service';
+import { TranslateModule } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-home',
   imports: [
     RouterLink,
-    AboutComponent
+    AboutComponent,
+    TranslateModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -16,8 +19,8 @@ export class HomeComponent {
 
   ngOnInit() {
     this.seoService.setPageSeo({
-      title: 'Dominici Nicolas | About Me',
-      description: 'Hi, I am Dominici Nicolas. Welcome to my personal portfolio where you can discover my skills, experience, and professional journey.',
+      title: 'Dominici Nicolas | Tech Specialist & Software Engineer',
+      description: 'Ciao, sono Dominici Nicolas. Scopri il mio portfolio: dallo sviluppo Full Stack alla progettazione di reti, automazione industriale e cybersecurity.',
       url: 'https://nicolas-dominici.it/',
       keywords: 'Dominici Nicolas, web developer, portfolio, frontend, Angular, projects',
       locale: 'it_IT'

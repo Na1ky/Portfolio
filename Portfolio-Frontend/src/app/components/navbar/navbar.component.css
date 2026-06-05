@@ -1,34 +1,68 @@
 /* NAVBAR GLASS */
 .custom-navbar {
-  background: rgba(20, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 80, 80, 0.15);
-  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
+  background: rgba(20, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 80, 80, 0.2);
+  box-shadow: 0 4px 24px rgba(255, 0, 0, 0.12);
+  padding: 0.8rem 2.5rem;
 }
+
+/* INNER WRAPPER - flex, 3 zone */
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
 /* LOGO */
 .custom-navbar .navbar-brand {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: #ffbdbd;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* LINK NAV */
+/* COLLAPSE - occupa spazio centrale */
+.custom-navbar .navbar-collapse {
+  display: flex !important;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+/* LINKS - centrati in assoluto rispetto alla navbar */
+.custom-navbar .nav-center {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+/* LINK SINGOLO */
 .custom-navbar .nav-link {
   color: #f0dada;
   font-weight: 500;
   font-size: 1rem;
-  margin-left: 20px;
+  padding: 0.4rem 0.9rem;
   position: relative;
-  transition: 0.3s;
+  transition: color 0.3s;
+  text-decoration: none;
 }
 
 /* Underline animata */
 .custom-navbar .nav-link::after {
   content: "";
   position: absolute;
-  bottom: -3px;
-  left: 0;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0%;
   height: 2px;
   background: #ff4444;
@@ -36,11 +70,49 @@
 }
 
 .custom-navbar .nav-link:hover::after {
-  width: 100%;
+  width: 80%;
 }
 
 .custom-navbar .nav-link:hover {
   color: #ffffff;
+}
+
+/* LANG SWITCHER */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.language-switcher button {
+  background: transparent;
+  border: none;
+  color: rgba(240, 218, 218, 0.55);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 4px 7px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.language-switcher button:hover {
+  color: #fff;
+}
+
+.language-switcher button.lang-active {
+  color: #ff5757;
+}
+
+.lang-sep {
+  color: rgba(255, 80, 80, 0.4);
+  font-size: 0.85rem;
+  line-height: 1;
+  user-select: none;
 }
 
 /* BURGER MENU */
@@ -50,4 +122,24 @@
 
 .navbar-toggler-icon {
   filter: brightness(0.8) sepia(1) hue-rotate(-20deg) saturate(3);
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .custom-navbar .navbar-collapse {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .custom-navbar .nav-center {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .language-switcher {
+    margin-left: 0;
+    padding: 0.5rem 0;
+  }
 }
