@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-loading',
@@ -8,22 +9,60 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 export class LoadingComponent implements OnInit {
   @Output() loadingfinished = new EventEmitter<void>();
 
-  constructor() {}
+  constructor(public dataService: DataService) {}
 
   async ngOnInit() {
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await this.waitForImagesToLoad();
+    
+    // Minimum display time + extra buffer
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
     this.startExitAnimation();
 
     setTimeout(() => {
       this.loadingfinished.emit();
-    }, 200);
+    }, 1200);
+  }
+
+  private waitForImagesToLoad(): Promise<void> {
+    return new Promise((resolve) => {
+      const checkImages = () => {
+        // Wait for DOM to be ready
+        if (document.readyState !== 'complete') {
+          return false;
+        }
+        
+        // Wait for data to be loaded from backend so images are actually rendered in DOM
+        if (this.dataService && this.dataService.isLoading && this.dataService.isLoading()) {
+          return false;
+        }
+
+        const images = Array.from(document.images);
+        const allLoaded = images.every(img => img.complete);
+        return allLoaded;
+      };
+
+      if (checkImages()) {
+        resolve();
+      } else {
+        const interval = setInterval(() => {
+          if (checkImages()) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, 150);
+      }
+    });
   }
 
   startExitAnimation() {
     const content = document.querySelector('.loading-content') as HTMLElement;
+    const bg = document.querySelector('.loading-background') as HTMLElement;
     if (content) {
       content.classList.add('exit-animation');
+    }
+    if (bg) {
+      bg.classList.add('exit-animation-bg');
     }
   }
 }

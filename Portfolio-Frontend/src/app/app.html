@@ -1,8 +1,9 @@
 <!-- AppComponent -->
 @if (loading) {
-  <app-loading (loadingfinished)="onLoadingFinished($event)"></app-loading>
-} @else {
+  <app-loading class="loader-overlay" (loadingfinished)="onLoadingFinished($event)"></app-loading>
+}
+<div [style.opacity]="loading ? '0' : '1'" [style.height]="loading ? '100vh' : 'auto'" [style.overflow]="loading ? 'hidden' : 'visible'">
   <app-navbar></app-navbar>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
-}
+</div>

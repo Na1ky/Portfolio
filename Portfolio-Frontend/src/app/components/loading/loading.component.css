@@ -105,3 +105,8 @@
 [data-aos].aos-animate {
   opacity: 1;
 }
+
+.loading-background.exit-animation-bg {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
