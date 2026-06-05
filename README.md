@@ -1,3 +1,5 @@
+<img width="1920" height="1077" alt="image" src="https://github.com/user-attachments/assets/f00e9997-b4ac-42ce-bcbe-605cb41ef0a2" />
+
 <h1 align="center">
   <br>
   🌐 Dominici Nicolas — Portfolio
