@@ -3,18 +3,18 @@
   <!-- HERO -->
   <div class="text-center mb-7" data-aos="fade-up">
     <span class="badge badge-glow mb-4 d-inline-block">
-      <h5>Disponibile per nuovi progetti</h5>
+      <h5>{{ 'CONTACT.BADGE' | translate }}</h5>
     </span>
 
     <h2 class="display-3 fw-bold font-poppins mb-4">
-      Hai un'idea?<br>
+      {{ 'CONTACT.TITLE_1' | translate }}<br>
       <span class="gradient-text d-inline-block mt-2">
-        Trasformiamola in realtà.
+        {{ 'CONTACT.TITLE_2' | translate }}
       </span>
     </h2>
 
     <p class="lead mx-auto mt-4 contact-hero-text">
-      Compila il modulo o contattami tramite uno dei canali diretti sottostanti per parlare del tuo progetto.
+      {{ 'CONTACT.SUBTITLE' | translate }}
     </p>
   </div>
 
@@ -23,13 +23,13 @@
     <!-- CONTACT DETAILS -->
     <div class="col-lg-5" data-aos="fade-right">
       <h4 class="section-title mb-5">
-        Informazioni di contatto
+        {{ 'CONTACT.INFO_TITLE' | translate }}
       </h4>
 
       <div class="contact-card mb-4">
         <i class="bi bi-envelope"></i>
         <div>
-          <small>Email: </small>
+          <small>{{ 'CONTACT.EMAIL' | translate }}: </small>
           <strong>nicolasdominici.lav&#64;gmail.com</strong>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="contact-card mb-4">
         <i class="bi bi-telephone"></i>
         <div>
-          <small>Telefono: </small>
+          <small>{{ 'CONTACT.PHONE' | translate }}: </small>
           <strong>+39 342 571 2220</strong>
         </div>
       </div>
@@ -45,13 +45,13 @@
       <div class="contact-card mb-5">
         <i class="bi bi-geo-alt"></i>
         <div>
-          <small>Località: </small>
+          <small>{{ 'CONTACT.LOCATION' | translate }}: </small>
           <strong>Torino, Italia</strong>
         </div>
       </div>
 
       <h6 class="mb-4">
-        Seguimi
+        {{ 'CONTACT.FOLLOW' | translate }}
       </h6>
 
       <div class="d-flex gap-4 mb-6">
@@ -69,11 +69,11 @@
         <i class="bi bi-chat-dots chat-bg-icon"></i>
 
         <h5 class="mb-3">
-          Preferisci una chat veloce?
+          {{ 'CONTACT.CHAT_TITLE' | translate }}
         </h5>
 
         <p class="mb-4">
-          Di solito rispondo più velocemente su WhatsApp.
+          {{ 'CONTACT.CHAT_TEXT' | translate }}
         </p>
 
         <div class="d-flex gap-4">
@@ -89,42 +89,40 @@
       <div class="glass-card p-5 p-lg-6 h-100">
         <form id="contactForm" (ngSubmit)="sendEmail()" #contactForm="ngForm" novalidate>
           <div class="col-md-6 mb-3">
-            <label class="form-label mb-2">Nome e cognome</label>
+            <label class="form-label mb-2">{{ 'CONTACT.FORM.FULL_NAME' | translate }}</label>
             <input type="text" name="fullName" [(ngModel)]="formData.fullName" class="form-control form-dark"
-              placeholder="Mario Rossi" required>
+              [placeholder]="'CONTACT.FORM.FULL_NAME_PLACEHOLDER' | translate" required>
           </div>
 
           <div class="col-md-6 mb-3">
-            <label class="form-label mb-2">Indirizzo email</label>
+            <label class="form-label mb-2">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
             <input type="email" name="email" [(ngModel)]="formData.email" class="form-control form-dark"
-              placeholder="nome@esempio.com" required email #emailField="ngModel"
+              [placeholder]="'CONTACT.FORM.EMAIL_PLACEHOLDER' | translate" required email #emailField="ngModel"
               [class.is-invalid]="emailField.invalid && (emailField.touched || contactForm.submitted)">
             @if (emailField.invalid && (emailField.touched || contactForm.submitted)) {
-            <small class="text-danger d-block mt-2">Inserisci un indirizzo email valido.</small>
+            <small class="text-danger d-block mt-2">{{ 'CONTACT.MESSAGES.INVALID_EMAIL' | translate }}</small>
             }
           </div>
 
           <div class="mb-4">
-            <label class="form-label mb-2">Oggetto</label>
+            <label class="form-label mb-2">{{ 'CONTACT.FORM.SUBJECT' | translate }}</label>
             <input type="text" name="subject" [(ngModel)]="formData.subject" class="form-control form-dark"
-              placeholder="Richiesta progetto" required>
+              [placeholder]="'CONTACT.FORM.SUBJECT_PLACEHOLDER' | translate" required>
           </div>
 
           <div class="mb-5">
-            <label class="form-label mb-2">Messaggio</label>
+            <label class="form-label mb-2">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
             <textarea name="message" [(ngModel)]="formData.message" class="form-control form-dark" rows="6"
-              placeholder="Raccontami la tua idea…" required></textarea>
+              [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate" required></textarea>
           </div>
 
-          <!-- Honeypot (kept as hidden to bots; use text with d-none if you prefer) -->
           <input type="hidden" name="botField" [(ngModel)]="formData.botField">
 
           <button type="submit" class="btn btn-gradient w-100 py-3" [disabled]="sending || contactForm.invalid">
-            <!-- If your build supports @if syntax, keep it; otherwise use the standard *ngIf shown below -->
             @if (!sending) {
-            <span>Invia messaggio</span>
+            <span>{{ 'CONTACT.FORM.SEND' | translate }}</span>
             } @else {
-            <span>Invio…</span>
+            <span>{{ 'CONTACT.FORM.SENDING' | translate }}</span>
             }
           </button>
 

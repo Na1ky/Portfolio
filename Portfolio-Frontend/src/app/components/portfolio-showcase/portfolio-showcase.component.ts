@@ -8,6 +8,7 @@ import { ICategory, ITechnologies } from '../../data/Technologies';
 import { TechnologiesCardComponent } from '../tech-stack-card/tech-stack-card.component';
 import { TerminalLoaderComponent } from '../terminal-loader/terminal-loader.component';
 import { SeoService } from '../../services/seo.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-portfolio-showcase',
@@ -16,7 +17,8 @@ import { SeoService } from '../../services/seo.service';
     ProjectCardComponent,
     CertificateCardComponent,
     TechnologiesCardComponent,
-    TerminalLoaderComponent
+    TerminalLoaderComponent,
+    TranslateModule
   ],
   templateUrl: './portfolio-showcase.component.html',
   styleUrls: ['./portfolio-showcase.component.css']

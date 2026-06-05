@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SeoService } from '../../services/seo.service';
 import emailjs from 'emailjs-com';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
@@ -25,7 +26,11 @@ export class ContactComponent {
   private EMAILJS_SERVICE_ID = 'service_rw7rpob';
   private EMAILJS_TEMPLATE_ID = 'template_2pt9adn';
 
-  constructor(private cdr: ChangeDetectorRef, private seoService: SeoService) {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private seoService: SeoService,
+    private translate: TranslateService
+  ) {
     emailjs.init(this.EMAILJS_USER_ID);
   }
 
@@ -48,15 +53,15 @@ export class ContactComponent {
   async sendEmail() {
     if (!this.formData.fullName || !this.formData.email || !this.formData.subject || !this.formData.message) {
       this.resultSuccess = false;
-      this.resultMessage = 'Per favore compila tutti i campi obbligatori.';
+      this.resultMessage = this.translate.instant('CONTACT.MESSAGES.REQUIRED');
       this.cdr.detectChanges();
       return;
     }
 
     if (!this.isValidEmail(this.formData.email)) {
       this.resultSuccess = false;
-      this.resultMessage = 'Inserisci un indirizzo email valido.';
-      this.emailError = 'Formato email non valido.';
+      this.resultMessage = this.translate.instant('CONTACT.MESSAGES.INVALID_EMAIL');
+      this.emailError = this.translate.instant('CONTACT.MESSAGES.INVALID_EMAIL_FORMAT');
       this.cdr.detectChanges();
       return;
     }
@@ -65,7 +70,7 @@ export class ContactComponent {
 
     if (this.formData.botField) {
       this.resultSuccess = false;
-      this.resultMessage = 'Rilevato spam.';
+      this.resultMessage = this.translate.instant('CONTACT.MESSAGES.SPAM');
       this.cdr.detectChanges();
       return;
     }
@@ -89,7 +94,7 @@ export class ContactComponent {
 
       if (ok) {
         this.resultSuccess = true;
-        this.resultMessage = 'Messaggio inviato! Grazie.';
+        this.resultMessage = this.translate.instant('CONTACT.MESSAGES.SUCCESS');
         this.formData = { fullName: '', email: '', subject: '', message: '', botField: '' };
         this.emailError = '';
 
@@ -102,13 +107,13 @@ export class ContactComponent {
         }, 5000);
       } else {
         this.resultSuccess = false;
-        this.resultMessage = 'Invio fallito, riprova più tardi.';
+        this.resultMessage = this.translate.instant('CONTACT.MESSAGES.FAILED');
         this.cdr.detectChanges();
       }
     } catch (err: any) {
       console.error('EmailJS error', err);
       this.resultSuccess = false;
-      this.resultMessage = err?.text || err?.message || 'Errore nell\'invio, riprova più tardi.';
+      this.resultMessage = err?.text || err?.message || this.translate.instant('CONTACT.MESSAGES.ERROR');
       this.cdr.detectChanges();
     } finally {
       this.sending = false;

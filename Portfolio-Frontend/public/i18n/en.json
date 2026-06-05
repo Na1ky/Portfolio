@@ -28,5 +28,56 @@
       "CERTS": "CERTIFICATIONS",
       "CERTS_SUB": "VALIDATED"
     }
+  },
+  "PORTFOLIO": {
+    "TITLE_1": "Portfolio",
+    "TITLE_2": "Showcase",
+    "SUBTITLE": "Explore my journey through projects, certifications, and technical skills.",
+    "TABS": {
+      "PROJECTS": "Projects",
+      "CERTIFICATES": "Certifications",
+      "TECHNOLOGIES": "Technologies"
+    },
+    "CATEGORY_SUBTITLE": "Skills in",
+    "CARDS": {
+      "PREVIEW": "Preview {{ index }}",
+      "DETAILS": "Details",
+      "ISSUED_BY": "Issued by",
+      "RELEASED": "Released"
+    }
+  },
+  "CONTACT": {
+    "BADGE": "Available for new projects",
+    "TITLE_1": "Have an idea?",
+    "TITLE_2": "Let's turn it into reality.",
+    "SUBTITLE": "Fill out the form or contact me through one of the direct channels below to talk about your project.",
+    "INFO_TITLE": "Contact information",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "LOCATION": "Location",
+    "FOLLOW": "Follow me",
+    "CHAT_TITLE": "Prefer a quick chat?",
+    "CHAT_TEXT": "I usually reply faster on WhatsApp.",
+    "FORM": {
+      "FULL_NAME": "Full name",
+      "FULL_NAME_PLACEHOLDER": "John Smith",
+      "EMAIL": "Email address",
+      "EMAIL_PLACEHOLDER": "name@example.com",
+      "SUBJECT": "Subject",
+      "SUBJECT_PLACEHOLDER": "Project request",
+      "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "Tell me about your idea…",
+      "SEND": "Send message",
+      "SENDING": "Sending…"
+    },
+    "MESSAGES": {
+      "REQUIRED": "Please fill in all required fields.",
+      "INVALID_EMAIL": "Please enter a valid email address.",
+      "INVALID_EMAIL_FORMAT": "Invalid email format.",
+      "SPAM": "Spam detected.",
+      "SUCCESS": "Message sent! Thank you.",
+      "FAILED": "Sending failed, please try again later.",
+      "ERROR": "Error while sending, please try again later."
+    }
   }
 }

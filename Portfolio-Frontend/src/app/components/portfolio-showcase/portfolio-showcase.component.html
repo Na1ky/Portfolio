@@ -2,12 +2,12 @@
 
   <header class="text-center py-5" data-aos="fade-down">
     <h1 class="display-3 mb-3 title-main fw-bold">
-      Portfolio <span class="highlight">Vetrina</span>
+      {{ 'PORTFOLIO.TITLE_1' | translate }} <span class="highlight">{{ 'PORTFOLIO.TITLE_2' | translate }}</span>
     </h1>
     <div class="mx-auto"
       style="width: 60px; height: 4px; background: var(--primary-red); border-radius: 2px; margin-bottom: 20px;"></div>
     <p class="lead text-secondary-light">
-      Esplora il mio percorso attraverso progetti, certificazioni e competenze tecniche.
+      {{ 'PORTFOLIO.SUBTITLE' | translate }}
     </p>
   </header>
 
@@ -18,15 +18,15 @@
   <div class="d-flex justify-content-center mb-5" data-aos="zoom-in" data-aos-delay="200">
     <div class="custom-tabs-group">
       <button class="custom-tab-btn" [class.active]="activeTab === 'projects'" (click)="setActiveTab('projects')">
-        <i class="bi bi-code-slash me-2"></i> Progetti
+        <i class="bi bi-code-slash me-2"></i> {{ 'PORTFOLIO.TABS.PROJECTS' | translate }}
       </button>
       <button class="custom-tab-btn" [class.active]="activeTab === 'certificates'"
         (click)="setActiveTab('certificates')">
-        <i class="bi bi-award me-2"></i> Certificazioni
+        <i class="bi bi-award me-2"></i> {{ 'PORTFOLIO.TABS.CERTIFICATES' | translate }}
       </button>
       <button class="custom-tab-btn" [class.active]="activeTab === 'Technologies'"
         (click)="setActiveTab('Technologies')">
-        <i class="bi bi-stack me-2"></i> Tecnologie
+        <i class="bi bi-stack me-2"></i> {{ 'PORTFOLIO.TABS.TECHNOLOGIES' | translate }}
       </button>
     </div>
   </div>
@@ -61,7 +61,7 @@
           <div class="category-info">
             <span class="category-index">0{{ i + 1 }}</span>
             <div class="category-text">
-              <span class="category-subtitle">Competenze in</span>
+              <span class="category-subtitle">{{ 'PORTFOLIO.CATEGORY_SUBTITLE' | translate }}</span>
               <h3 class="category-label">{{ cat.name }}</h3>
             </div>
           </div>

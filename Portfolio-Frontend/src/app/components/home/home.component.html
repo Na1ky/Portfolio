@@ -1,39 +1,56 @@
-<div class="hero-container d-flex align-items-center container-fluid">
-  <div class="row align-items-center justify-content-between w-100 m-lg-5 text-center text-lg-start m-0">
-    <!-- TEXT SECTION -->
-    <div class="col-lg-6 mb-5 mb-lg-0 text-section ms-lg-5" data-aos="fade-right" data-aos-delay="200">
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="container-fluid px-4 px-xl-5">
 
-      <span class="badge-custom" [innerHTML]="'HOME.BADGE' | translate"></span>
+    <div class="row align-items-center justify-content-between g-4 g-lg-0">
 
-      <h1 class="title-main">
-        {{ 'HOME.TITLE_1' | translate }}
-        <br />
-        <span class="highlight">{{ 'HOME.TITLE_2' | translate }}</span>
-      </h1>
+      <!-- ===== TEXT COLUMN ===== -->
+      <div class="col-12 col-lg-5 text-center text-lg-start text-section"
+           data-aos="fade-right" data-aos-delay="200">
 
-      <p class="subtitle">
-        {{ 'HOME.SUBTITLE_1' | translate }}<br>
-        {{ 'HOME.SUBTITLE_2' | translate }}
-      </p>
+        <span class="badge-custom" [innerHTML]="'HOME.BADGE' | translate"></span>
 
-      <div class="tech-stack my-4">
-        <span class="tag me-lg-3">Full Stack (.NET/MEAN)</span>
-        <span class="tag me-lg-3">Sistemi & Reti</span>
-        <span class="tag me-lg-3">Automazione (PLC)</span>
+        <h1 class="title-main">
+          {{ 'HOME.TITLE_1' | translate }}
+          <br />
+          <span class="highlight">{{ 'HOME.TITLE_2' | translate }}</span>
+        </h1>
+
+        <p class="subtitle">
+          {{ 'HOME.SUBTITLE_1' | translate }}<br>
+          {{ 'HOME.SUBTITLE_2' | translate }}
+        </p>
+
+        <div class="tech-stack justify-content-center justify-content-lg-start">
+          <span class="tag">Full Stack (.NET/MEAN)</span>
+          <span class="tag">Sistemi &amp; Reti</span>
+          <span class="tag">Automazione (PLC)</span>
+        </div>
+
+        <div class="buttons justify-content-center justify-content-lg-start">
+          <button class="btn btn-primary neon-red neon-red-hover"
+                  [routerLink]="['/portfolio']">
+            {{ 'HOME.BTN_PORTFOLIO' | translate }}
+          </button>
+          <button class="btn btn-outline-light neon-red neon-red-hover"
+                  [routerLink]="['/contact']">
+            {{ 'HOME.BTN_CONTACT' | translate }}
+          </button>
+        </div>
+
       </div>
 
-      <div class="buttons mt-4">
-        <button class="btn btn-primary me-lg-3 neon-red neon-red-hover" [routerLink]="['/portfolio']">{{ 'HOME.BTN_PORTFOLIO' | translate }}</button>
-        <button class="btn btn-outline-light neon-red neon-red-hover" [routerLink]="['/contact']">{{ 'HOME.BTN_CONTACT' | translate }}</button>
+      <!-- ===== IMAGE COLUMN ===== -->
+      <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end"
+           data-aos="fade-left" data-aos-delay="300">
+        <img src="/assets/home.gif"
+             class="hero-img img-fluid"
+             alt="Illustrazione laptop">
       </div>
-    </div>
 
-    <!-- IMAGE SECTION -->
-    <div class="col-lg-5 text-center ms-lg-5" data-aos="fade-left" data-aos-delay="300">
-      <img src="/assets/home.gif" class="hero-img img-fluid" alt="Illustrazione laptop">
     </div>
   </div>
-</div>
+</section>
 
 <section id="about" class="section-block section-about">
   <app-about></app-about>

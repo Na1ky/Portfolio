@@ -217,6 +217,26 @@ app-tech-stack-card:hover {
 
 /* --- RESPONSIVITÀ --- */
 @media (max-width: 768px) {
+  .portfolio-container {
+    padding: 0 16px;
+  }
+
+  .custom-tabs-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(100%, 360px);
+    border-radius: 18px;
+  }
+
+  .custom-tab-btn {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .custom-tab-btn.active {
+    transform: none;
+  }
+
   .category-group {
     padding: 30px 20px;
   }

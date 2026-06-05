@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ICertificate } from '../../data/certificates';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-certificate-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './certificate-card.component.html',
   styleUrl: './certificate-card.component.css'
 })

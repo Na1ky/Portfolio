@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IProject } from '../../data/projects';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css'
 })

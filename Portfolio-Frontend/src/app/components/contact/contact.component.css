@@ -163,3 +163,21 @@ body {
   border: 1px solid #dc3545; /* bordo rosso */
   background-color: #1a1a1a; /* leggermente più scuro */
 }
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 20px;
+  }
+
+  .contact-card {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .contact-card strong {
+    overflow-wrap: anywhere;
+  }
+
+  .chat-box {
+    padding: 22px;
+  }
+}

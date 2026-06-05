@@ -1,6 +1,6 @@
 {
   "NAVBAR": {
-    "ABOUT": "About",
+    "ABOUT": "Chi sono",
     "PORTFOLIO": "Portfolio",
     "CONTACT": "Contatti"
   },
@@ -27,6 +27,57 @@
       "EXPERIENCE_SUB": "ANNI",
       "CERTS": "CERTIFICAZIONI",
       "CERTS_SUB": "VALIDATI"
+    }
+  },
+  "PORTFOLIO": {
+    "TITLE_1": "Portfolio",
+    "TITLE_2": "Vetrina",
+    "SUBTITLE": "Esplora il mio percorso attraverso progetti, certificazioni e competenze tecniche.",
+    "TABS": {
+      "PROJECTS": "Progetti",
+      "CERTIFICATES": "Certificazioni",
+      "TECHNOLOGIES": "Tecnologie"
+    },
+    "CATEGORY_SUBTITLE": "Competenze in",
+    "CARDS": {
+      "PREVIEW": "Anteprima {{ index }}",
+      "DETAILS": "Dettagli",
+      "ISSUED_BY": "Emesso da",
+      "RELEASED": "Rilasciato"
+    }
+  },
+  "CONTACT": {
+    "BADGE": "Disponibile per nuovi progetti",
+    "TITLE_1": "Hai un'idea?",
+    "TITLE_2": "Trasformiamola in realtà.",
+    "SUBTITLE": "Compila il modulo o contattami tramite uno dei canali diretti sottostanti per parlare del tuo progetto.",
+    "INFO_TITLE": "Informazioni di contatto",
+    "EMAIL": "Email",
+    "PHONE": "Telefono",
+    "LOCATION": "Località",
+    "FOLLOW": "Seguimi",
+    "CHAT_TITLE": "Preferisci una chat veloce?",
+    "CHAT_TEXT": "Di solito rispondo più velocemente su WhatsApp.",
+    "FORM": {
+      "FULL_NAME": "Nome e cognome",
+      "FULL_NAME_PLACEHOLDER": "Mario Rossi",
+      "EMAIL": "Indirizzo email",
+      "EMAIL_PLACEHOLDER": "nome@esempio.com",
+      "SUBJECT": "Oggetto",
+      "SUBJECT_PLACEHOLDER": "Richiesta progetto",
+      "MESSAGE": "Messaggio",
+      "MESSAGE_PLACEHOLDER": "Raccontami la tua idea…",
+      "SEND": "Invia messaggio",
+      "SENDING": "Invio…"
+    },
+    "MESSAGES": {
+      "REQUIRED": "Per favore compila tutti i campi obbligatori.",
+      "INVALID_EMAIL": "Inserisci un indirizzo email valido.",
+      "INVALID_EMAIL_FORMAT": "Formato email non valido.",
+      "SPAM": "Rilevato spam.",
+      "SUCCESS": "Messaggio inviato! Grazie.",
+      "FAILED": "Invio fallito, riprova più tardi.",
+      "ERROR": "Errore nell'invio, riprova più tardi."
     }
   }
 }

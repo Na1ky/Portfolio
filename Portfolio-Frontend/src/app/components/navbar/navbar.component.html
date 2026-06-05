@@ -3,10 +3,11 @@
   <div class="navbar-inner">
 
     <!-- LOGO -->
-    <a class="navbar-brand" href="#">Dominici Nicolas</a>
+    <a class="navbar-brand" [routerLink]="['/']">Dominici Nicolas</a>
 
     <!-- BURGER MOBILE -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Apri menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -15,7 +16,7 @@
 
       <!-- LINKS - centrati in assoluto -->
       <ul class="navbar-nav nav-center mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/about']">{{ 'NAVBAR.ABOUT' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="about">{{ 'NAVBAR.ABOUT' | translate }}</a></li>
         <li class="nav-item"><a class="nav-link" [routerLink]="['/portfolio']">{{ 'NAVBAR.PORTFOLIO' | translate }}</a></li>
         <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']">{{ 'NAVBAR.CONTACT' | translate }}</a></li>
       </ul>
