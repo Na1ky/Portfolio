@@ -168,8 +168,8 @@
 }
 
 .stat-card {
-  flex: 1 1 45%;
-  padding: 20px;
+  flex: 1 1 33%;
+  padding: 15px 5px;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 10px;
 }

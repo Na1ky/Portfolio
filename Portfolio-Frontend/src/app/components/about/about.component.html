@@ -6,7 +6,7 @@
   <div class="hero-container p-2 p-lg-5 mb-lg-5 justify-content-between text-center text-lg-start"> <!-- Left Image -->
     <div class="left-image img-fluid me-lg-5" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"><img
         src="https://res.cloudinary.com/dxudggkln/image/upload/v1780684850/file_000000004874720a8694e55c8545961c_pgmefr.png" alt="Nicolas Dominici"></div> <!-- Right Content -->
-    <div class="right-content w-75" data-aos-delay="400" data-aos="fade-left">
+    <div class="right-content" data-aos-delay="400" data-aos="fade-left">
       <div class="top-content">
         <div class="section-label" data-aos="zoom-in" data-aos-delay="300"><span class="terminal-icon">[>]</span> <span
             class="label-text">{{ 'ABOUT.SYSTEM_PROFILE' | translate }}</span>
@@ -20,8 +20,11 @@
           <p class="quote-text">{{ 'ABOUT.QUOTE' | translate }}</p>
         </div>
         <div #statsContainer class="stats-row d-flex flex-row mt-4"> @for (stat of stats; track stat.label) {
-          <div class="stat-card" data-aos="zoom-in" data-aos-delay="1000"><span class="stat-icon">{{ stat.icon }}</span>
-            <span class="stat-label">{{ 'ABOUT.STATS.' + stat.label | translate }}</span>
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="1000">
+            <div class="text-nowrap">
+              <span class="stat-icon me-1">{{ stat.icon }}</span>
+              <span class="stat-label">{{ 'ABOUT.STATS.' + stat.label | translate }}</span>
+            </div>
             <div class="stat-value">{{ stat.displayValue() }} </div>
             <span class="stat-sublabel">{{ 'ABOUT.STATS.' + stat.sublabel | translate }}</span>
           </div>

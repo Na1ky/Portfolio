@@ -25,4 +25,12 @@ export class NavbarComponent {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
   }
+
+  closeMenu() {
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse?.classList.contains('show') && navbarToggler) {
+      navbarToggler.click();
+    }
+  }
 }

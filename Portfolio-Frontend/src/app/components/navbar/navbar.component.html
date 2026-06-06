@@ -16,9 +16,9 @@
 
       <!-- LINKS - centrati in assoluto -->
       <ul class="navbar-nav nav-center mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/']" fragment="about">{{ 'NAVBAR.ABOUT' | translate }}</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/portfolio']">{{ 'NAVBAR.PORTFOLIO' | translate }}</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']">{{ 'NAVBAR.CONTACT' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="closeMenu()" [routerLink]="['/']" fragment="about">{{ 'NAVBAR.ABOUT' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="closeMenu()" [routerLink]="['/portfolio']">{{ 'NAVBAR.PORTFOLIO' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="closeMenu()" [routerLink]="['/contact']">{{ 'NAVBAR.CONTACT' | translate }}</a></li>
       </ul>
 
       <!-- LANG SWITCHER - fisso a destra -->

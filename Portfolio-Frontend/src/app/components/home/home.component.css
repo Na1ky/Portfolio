@@ -161,7 +161,7 @@
    ============================================ */
 @media (max-width: 768px) {
   .title-main {
-    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    font-size: clamp(1.5rem, 5.5vw, 2.2rem);
   }
 
   .subtitle {
