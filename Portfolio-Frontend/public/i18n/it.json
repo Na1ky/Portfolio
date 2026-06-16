@@ -42,6 +42,7 @@
     "CARDS": {
       "PREVIEW": "Anteprima {{ index }}",
       "DETAILS": "Dettagli",
+      "DOWNLOAD": "Scarica file",
       "ISSUED_BY": "Emesso da",
       "RELEASED": "Rilasciato"
     }

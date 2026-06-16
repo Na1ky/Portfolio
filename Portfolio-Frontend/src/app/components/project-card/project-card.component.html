@@ -61,6 +61,11 @@
       Demo
     </a>
     }
+    @if (project.download) {
+      <a [href]="project.download" class="btn project-btn mt-1" [attr.download]="''">
+        {{ 'PORTFOLIO.CARDS.DOWNLOAD' | translate }}
+      </a>
+    }
   </div>
 
 </div>

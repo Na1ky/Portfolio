@@ -5,5 +5,6 @@ export interface IProject {
   image_url: [];
   details: string;
   technologies_used: [];
-  demo_url?: string
+  demo_url?: string;
+  download?: string;
 }
