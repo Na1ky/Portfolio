@@ -1,0 +1,80 @@
+.section-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Contact card */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(40, 12, 20, 0.65);
+  border: 1px solid rgba(253, 164, 175, 0.12);
+  transition: all .3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 10px 30px rgba(159, 18, 57, 0.25);
+}
+
+.contact-card i {
+  font-size: 1.5rem;
+  color: #fb7185;
+}
+
+/* Social buttons */
+.social-btn {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(253, 164, 175, 0.25);
+  color: #fecdd3;
+  transition: all .3s ease;
+}
+
+.social-btn:hover {
+  color: #f43f5e;
+  border-color: #f43f5e;
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.4);
+}
+
+/* Chat box */
+.chat-box {
+  position: relative;
+  padding: 28px;
+  border-radius: 24px;
+  background: linear-gradient(135deg,
+      #9f1239,
+      #e11d48);
+  color: #fff;
+  overflow: hidden;
+}
+
+.chat-bg-icon {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-size: 120px;
+  opacity: .18;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .contact-card strong {
+    overflow-wrap: anywhere;
+  }
+
+  .chat-box {
+    padding: 22px;
+  }
+}

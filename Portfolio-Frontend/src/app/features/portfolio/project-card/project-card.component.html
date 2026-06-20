@@ -1,0 +1,74 @@
+<div class="project-card">
+
+  <!-- Image Carousel Section -->
+  <div class="card-media">
+    <div [id]="'project-' + project._id" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        @for(image of project.image_url; track $index){
+        <button type="button"
+          [attr.data-bs-target]="'#project-' + project._id"
+          [attr.data-bs-slide-to]="$index"
+          [class.active]="$index === 0">
+        </button>
+        }
+      </div>
+
+      <div class="carousel-inner">
+        @for(image of project.image_url; track $index){
+        <div class="carousel-item" [class.active]="$index === 0">
+          <img src="{{ image }}" class="d-block w-100" [alt]="'PORTFOLIO.CARDS.PREVIEW' | translate:{ index: $index + 1 }">
+        </div>
+        }
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#project-' + project._id"
+        data-bs-slide="prev">
+        <span class="control-icon">
+          <i class="bi bi-chevron-left"></i>
+        </span>
+      </button>
+
+      <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#project-' + project._id"
+        data-bs-slide="next">
+        <span class="control-icon">
+          <i class="bi bi-chevron-right"></i>
+        </span>
+      </button>
+    </div>
+
+    <!-- Gradient overlay on image -->
+    <div class="media-overlay"></div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="card-content">
+    <h3 class="card-title">{{ project.title }}</h3>
+
+    <p class="card-description">{{ project.description }}</p>
+
+    <div class="tech-tags">
+      @for(t of project.technologies_used; track $index){
+      <span class="tech-tag">{{ t }}</span>
+      }
+    </div>
+
+    <div class="card-actions">
+      <a href="{{project.details}}" class="btn-primary-card">
+        <i class="bi bi-arrow-up-right me-2"></i>{{ 'PORTFOLIO.CARDS.DETAILS' | translate }}
+      </a>
+      @if(project.demo_url){
+      <a href="{{project.demo_url}}" class="btn-ghost-card" target="_blank">
+        <i class="bi bi-play-circle me-2"></i>Demo
+      </a>
+      }
+      @if (project.download) {
+      <a [href]="project.download" class="btn-ghost-card" [attr.download]="''">
+        <i class="bi bi-download me-2"></i>{{ 'PORTFOLIO.CARDS.DOWNLOAD' | translate }}
+      </a>
+      }
+    </div>
+  </div>
+
+</div>

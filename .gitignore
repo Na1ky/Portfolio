@@ -1,0 +1,53 @@
+# --- General System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Dependencies ---
+node_modules/
+
+# --- Build & Output ---
+dist/
+tmp/
+out-tsc/
+bazel-out/
+coverage/
+.angular/
+.vite/
+.npm/
+
+# --- Environment & Hosting ---
+.env
+.env.*
+.env.local
+.vercel
+
+# --- Logs ---
+*.log
+npm-debug.log
+yarn-error.log
+libpeerconnection.log
+testem.log
+
+# --- IDEs and Editors ---
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# --- Miscellaneous ---
+.angular/cache
+.sass-cache/
+connect.lock
+typings/
+__screenshots__/

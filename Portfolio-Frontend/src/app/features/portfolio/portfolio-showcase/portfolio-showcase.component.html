@@ -1,0 +1,92 @@
+<div class="portfolio-container mb-5">
+
+  <header class="text-center py-5" data-aos="fade-down">
+    <h1 class="display-3 mb-3 title-main fw-bold">
+      {{ 'PORTFOLIO.TITLE_1' | translate }} <span class="highlight">{{ 'PORTFOLIO.TITLE_2' | translate }}</span>
+    </h1>
+    <div class="mx-auto"
+      style="width: 60px; height: 4px; background: var(--primary-red); border-radius: 2px; margin-bottom: 20px;"></div>
+    <p class="lead text-secondary-light">
+      {{ 'PORTFOLIO.SUBTITLE' | translate }}
+    </p>
+  </header>
+
+  @if (dataService.isLoading()) {
+  <app-loader fileName="portfolio_data.sh" context="database_query">
+  </app-loader>
+  } @else {
+  <div class="d-flex justify-content-center mb-5" data-aos="zoom-in" data-aos-delay="200">
+    <div class="custom-tabs-group">
+      <button class="custom-tab-btn" [class.active]="activeTab === 'projects'" (click)="setActiveTab('projects')">
+        <i class="bi bi-code-slash me-2"></i> {{ 'PORTFOLIO.TABS.PROJECTS' | translate }}
+      </button>
+      <button class="custom-tab-btn" [class.active]="activeTab === 'certificates'"
+        (click)="setActiveTab('certificates')">
+        <i class="bi bi-award me-2"></i> {{ 'PORTFOLIO.TABS.CERTIFICATES' | translate }}
+      </button>
+      <button class="custom-tab-btn" [class.active]="activeTab === 'Technologies'"
+        (click)="setActiveTab('Technologies')">
+        <i class="bi bi-stack me-2"></i> {{ 'PORTFOLIO.TABS.TECHNOLOGIES' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrapper container">
+    @switch (activeTab) {
+
+    @case ('projects') {
+    <div class="row g-4" data-aos="fade-up">
+      @for (project of projects; track project._id) {
+      <div class="col-lg-4 col-md-6 card-anim-wrapper">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+      }
+    </div>
+    }
+
+    @case ('certificates') {
+    <div class="row g-4" data-aos="fade-up">
+      @for (certificate of certificates; track certificate._id; let i = $index) {
+      <div class="col-lg-4 col-md-6 card-anim-wrapper" [attr.data-aos-delay]="i * 50">
+        <app-certificate-card [certificate]="certificate"></app-certificate-card>
+      </div>
+      }
+    </div>
+    }
+
+    @case ('Technologies') {
+    <div class="tech-sections-container"> @for (cat of categories; track cat.id; let i = $index) {
+      <section class="category-group mb-5" data-aos="fade-in">
+        <div class="category-header-wrapper mb-4">
+          <div class="category-info">
+            <span class="category-index">0{{ i + 1 }}</span>
+            <div class="category-text">
+              <span class="category-subtitle">{{ 'PORTFOLIO.CATEGORY_SUBTITLE' | translate }}</span>
+              <h3 class="category-label">{{ cat.name }}</h3>
+            </div>
+          </div>
+          <div class="category-line-deco">
+            <div class="line-dot"></div>
+            <div class="line-main"></div>
+          </div>
+        </div>
+
+        <div class="tech-grid-wrapper">
+          <div class="tech-grid">
+            @for (tech of Technologies; track tech; let j = $index) {
+            @if (tech.category.name === cat.name) {
+            <div class="col-lg-4 col-md-6 card-anim-wrapper" data-aos="zoom-in" [attr.data-aos-delay]="j * 50">
+              <app-tech-stack-card [Technologies]="tech"></app-tech-stack-card>
+            </div>
+            }
+            }
+          </div>
+        </div>
+      </section>
+      }
+    </div>
+    }
+    }
+  </div>
+  }
+</div>

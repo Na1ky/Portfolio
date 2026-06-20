@@ -1,0 +1,39 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #2a0e16, #12060a);
+  color: #f3e8ee;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-hero-text {
+  max-width: 640px;
+}
+
+/* Badge */
+.badge-glow {
+  background: rgba(159, 18, 57, 0.18);
+  color: #fda4af;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 0 25px rgba(159, 18, 57, 0.35);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #fda4af,
+    #fb7185,
+    #e11d48
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.my-6 { margin-top: 5rem; margin-bottom: 5rem; }
+.mb-6 { margin-bottom: 5rem; }
+.mb-7 { margin-bottom: 6rem; }

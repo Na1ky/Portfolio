@@ -159,7 +159,7 @@ Portfolio/
 │   │   │   │   ├── navbar/                # Navigazione
 │   │   │   │   ├── footer/                # Footer
 │   │   │   │   ├── loading/               # Spinner di caricamento
-│   │   │   │   └── terminal-loader/       # Animazione terminale iniziale
+│   │   │   │   └── loader/       # Animazione terminale iniziale
 │   │   │   │
 │   │   │   ├── services/
 │   │   │   │   ├── data.service.ts        # Chiamate HTTP al backend

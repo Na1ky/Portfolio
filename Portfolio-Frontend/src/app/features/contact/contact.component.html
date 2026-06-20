@@ -1,0 +1,33 @@
+<section class="container my-6 position-relative">
+
+  <!-- HERO -->
+  <div class="text-center mb-7" data-aos="fade-up">
+    <span class="badge badge-glow mb-4 d-inline-block">
+      <h5>{{ 'CONTACT.BADGE' | translate }}</h5>
+    </span>
+
+    <h2 class="display-3 fw-bold font-poppins mb-4">
+      {{ 'CONTACT.TITLE_1' | translate }}<br>
+      <span class="gradient-text d-inline-block mt-2">
+        {{ 'CONTACT.TITLE_2' | translate }}
+      </span>
+    </h2>
+
+    <p class="lead mx-auto mt-4 contact-hero-text">
+      {{ 'CONTACT.SUBTITLE' | translate }}
+    </p>
+  </div>
+
+  <div class="row g-6 align-items-stretch">
+
+    <!-- CONTACT DETAILS -->
+    <div class="col-lg-5" data-aos="fade-right">
+      <app-contact-info></app-contact-info>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="col-lg-7" data-aos="fade-left">
+      <app-contact-form></app-contact-form>
+    </div>
+  </div>
+</section>
