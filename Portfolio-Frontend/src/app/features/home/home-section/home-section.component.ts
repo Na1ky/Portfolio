@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { SeoService } from '../../../core/services/seo.service';
@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './home-section.component.html',
   styleUrl: './home-section.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   constructor(private seoService: SeoService) { }
 
   ngOnInit() {
