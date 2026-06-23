@@ -14,6 +14,5 @@ export class ProjectCardComponent {
 
   @Input({ required: true }) project!: IProject;
   ngOnInit(): void {
-    console.log(this.project);
   }
 }

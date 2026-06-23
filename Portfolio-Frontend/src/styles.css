@@ -32,7 +32,14 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at center, #180000 0%, #0a0000 100%);
+  background-color: #050505;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(20, 0, 0, 0.8) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(15, 0, 0, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 50% 65%, rgba(25, 0, 0, 0.8) 0%, transparent 55%),
+    radial-gradient(circle at 80% 90%, rgba(10, 0, 0, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 20% 85%, rgba(12, 0, 0, 0.7) 0%, transparent 45%);
+  background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
   position: relative;

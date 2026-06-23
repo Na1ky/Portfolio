@@ -1,0 +1,98 @@
+.skills-ticker-wrapper {
+  width: 100%;
+  position: relative;
+  /* Sfondo trasparente per fondersi col tema rosso/nero globale */
+  background: transparent;
+  margin: 3rem 0;
+  /* Maschera CSS per la dissolvenza ai lati, funziona su qualsiasi sfondo */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.skills-ticker-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  padding: 1rem 0;
+  cursor: grab;
+}
+
+.skills-ticker-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.skills-ticker-container:active {
+  cursor: grabbing;
+}
+
+.skills-ticker-track {
+  display: flex;
+  width: max-content;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.8rem;
+  margin: 0 1rem;
+  /* Tonalità rossa sottilissima per integrarsi col body dark red */
+  background: rgba(255, 58, 58, 0.03);
+  border: 1px solid rgba(255, 58, 58, 0.1);
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+}
+
+.skill-item:hover {
+  background: rgba(255, 58, 58, 0.08);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 58, 58, 0.15);
+  border-color: rgba(255, 58, 58, 0.3);
+}
+
+.skill-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-item:hover .skill-icon {
+  transform: rotate(10deg);
+}
+
+.skill-name {
+  color: #f0f0f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-ticker-wrapper {
+    margin: 2rem 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+  }
+
+  .skill-item {
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.8rem;
+  }
+  
+  .skill-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .skill-name {
+    font-size: 1rem;
+  }
+}

@@ -14,6 +14,5 @@ export class CertificateCardComponent {
   @Input({ required: true }) certificate!: ICertificate;
 
   ngOnInit(): void {
-    console.log(this.certificate);
   }
 }

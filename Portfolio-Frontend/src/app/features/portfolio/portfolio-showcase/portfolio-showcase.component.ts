@@ -65,8 +65,6 @@ export class PortfolioShowcaseComponent implements OnInit {
       this.Technologies = resTech;
       this.categories = resCategories;
 
-      console.log(this.certificates, this.categories);
-
     } catch (error) {
       console.error('Errore nel recupero dei dati:', error);
     } finally {

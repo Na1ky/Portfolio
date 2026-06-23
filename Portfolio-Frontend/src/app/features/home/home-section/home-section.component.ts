@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AboutComponent } from '../about/about.component';
 import { SeoService } from '../../../core/services/seo.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { SkillsTicker } from '../skills-ticker/skills-ticker';
 
 @Component({
   selector: 'app-home',
   imports: [
     AboutComponent,
-    TranslateModule
+    TranslateModule,
+    SkillsTicker
   ],
   templateUrl: './home-section.component.html',
   styleUrl: './home-section.component.css',
@@ -25,4 +27,3 @@ export class HomeComponent implements OnInit {
     });
   }
 }
-
