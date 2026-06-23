@@ -26,4 +26,5 @@ export class HomeComponent implements OnInit {
       locale: 'it_IT'
     });
   }
+}
 
