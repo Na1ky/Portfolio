@@ -31,7 +31,7 @@ export class AboutComponent implements AfterViewInit, OnInit {
     if (!this.embedded) {
       this.seoService.setPageSeo({
         title: 'Dominici Nicolas | About Me',
-        description: 'Software & Network Engineer, Tech Specialist. Scopri il mio profilo, competenze in sviluppo, cybersecurity, reti e automazione.',
+        description: 'Nicolas Dominici, Software & Network Engineer. Esplora il mio portfolio per scoprire progetti di sviluppo Full Stack, progettazione reti e cybersecurity.',
         url: 'https://nicolas-dominici.it/about',
         keywords: 'Dominici Nicolas, about, frontend developer, software engineer',
         locale: 'it_IT'

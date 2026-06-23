@@ -42,7 +42,7 @@ export class SeoService {
             this.meta.updateTag({ name: 'keywords', content: options.keywords });
         }
         this.meta.updateTag({ name: 'author', content: 'Dominici Nicolas' });
-        this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+        this.meta.updateTag({ name: 'robots', content: 'index, follow, max-image-preview:none' });
 
         this.meta.updateTag({ property: 'og:title', content: options.title });
         this.meta.updateTag({ property: 'og:description', content: options.description });
