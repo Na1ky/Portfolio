@@ -1,4 +1,5 @@
-<img width="1920" height="1077" alt="image" src="https://res.cloudinary.com/dxudggkln/image/upload/v1782149842/Gemini_Generated_Image_1t48c51t48c51t48_gjoas4.png" />
+<img width="1919" height="940" alt="image" src="https://github.com/user-attachments/assets/6ff3dfb7-c29d-4571-bf37-4e07ed386e66" />
+
 
 <h1 align="center">
   <br>
