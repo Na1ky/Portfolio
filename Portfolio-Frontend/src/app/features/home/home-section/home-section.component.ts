@@ -20,11 +20,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.seoService.setPageSeo({
       title: 'Dominici Nicolas | Tech Specialist & Software Engineer',
-      description: 'Nicolas Dominici, Software & Network Engineer. Esplora il mio portfolio per scoprire progetti di sviluppo Full Stack, progettazione reti e cybersecurity.',
+      description: 'Nicolas Dominici | Full-Stack & Software Developer. Sviluppo soluzioni complete, dalle applicazioni desktop alle piattaforme web full-stack.',
       url: 'https://nicolas-dominici.it/',
       keywords: 'Dominici Nicolas, web developer, portfolio, frontend, Angular, projects',
       locale: 'it_IT'
     });
   }
-}
 

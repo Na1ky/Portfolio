@@ -31,14 +31,14 @@ export class AboutComponent implements AfterViewInit, OnInit {
     if (!this.embedded) {
       this.seoService.setPageSeo({
         title: 'Dominici Nicolas | About Me',
-        description: 'Nicolas Dominici, Software & Network Engineer. Esplora il mio portfolio per scoprire progetti di sviluppo Full Stack, progettazione reti e cybersecurity.',
+        description: 'Nicolas Dominici | Full-Stack & Software Developer. Sviluppo soluzioni complete, dalle applicazioni desktop alle piattaforme web full-stack.',
         url: 'https://nicolas-dominici.it/about',
         keywords: 'Dominici Nicolas, about, frontend developer, software engineer',
         locale: 'it_IT'
       });
     }
     try {
-      
+
 
       const [projectsCount, certificatesCount] = await Promise.all([
         this.dataService.getProjectsCount(),
@@ -52,7 +52,7 @@ export class AboutComponent implements AfterViewInit, OnInit {
     } catch (error) {
       console.error('Errore nel recupero dei dati:', error);
     } finally {
-      
+
 
       setTimeout(() => this.initIntersectionObserver(), 100);
     }
