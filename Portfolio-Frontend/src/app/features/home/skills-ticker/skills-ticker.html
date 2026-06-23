@@ -10,12 +10,12 @@
     <div class="skills-ticker-track" #track>
       <!-- Original list -->
       <div class="skill-item" *ngFor="let tech of technologies">
-        <img [src]="tech.icon_url" [alt]="tech.name" class="skill-icon" loading="lazy" draggable="false">
+        <img [src]="tech.icon_url" [alt]="tech.name" class="skill-icon" draggable="false">
         <span class="skill-name">{{ tech.name }}</span>
       </div>
       <!-- Duplicated list for infinite scrolling -->
       <div class="skill-item" *ngFor="let tech of technologies" aria-hidden="true">
-        <img [src]="tech.icon_url" [alt]="tech.name" class="skill-icon" loading="lazy" draggable="false">
+        <img [src]="tech.icon_url" [alt]="tech.name" class="skill-icon" draggable="false">
         <span class="skill-name">{{ tech.name }}</span>
       </div>
     </div>

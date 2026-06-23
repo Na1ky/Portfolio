@@ -44,7 +44,8 @@ export class LoadingComponent implements OnInit, AfterViewInit {
           return false;
         }
 
-        const images = Array.from(document.images);
+        // Filter out lazy loaded images because they won't load until scrolled into view
+        const images = Array.from(document.images).filter(img => img.loading !== 'lazy');
         const allLoaded = images.every(img => img.complete);
         return allLoaded;
       };

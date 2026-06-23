@@ -11,9 +11,7 @@
 
 .skills-ticker-container {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
+  overflow: hidden;
   padding: 1rem 0;
   cursor: grab;
 }
@@ -29,6 +27,7 @@
 .skills-ticker-track {
   display: flex;
   width: max-content;
+  will-change: transform;
 }
 
 .skill-item {

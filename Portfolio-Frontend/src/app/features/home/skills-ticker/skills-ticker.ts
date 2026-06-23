@@ -20,10 +20,10 @@ export class SkillsTicker implements OnInit, OnDestroy {
   private isHovered: boolean = false;
   private isDragging: boolean = false;
   private startX: number = 0;
-  private scrollLeft: number = 0;
+  private startXPos: number = 0;
+  private currentX: number = 0;
   
   private autoScrollSpeed: number = 0.5; // Default slow speed
-  private accumulator: number = 0;
 
   constructor(
     private dataService: DataService, 
@@ -52,31 +52,36 @@ export class SkillsTicker implements OnInit, OnDestroy {
     }
   }
 
+  private lastTime: number = 0;
+
   startAnimation() {
-    const loop = () => {
+    const loop = (timestamp: number) => {
+      if (!this.lastTime) this.lastTime = timestamp;
+      let dt = timestamp - this.lastTime;
+      // Se il tab era inattivo, evitiamo un salto enorme limitando il dt a un valore realistico (es. ~60fps)
+      if (dt > 100) dt = 16.66; 
+      this.lastTime = timestamp;
+
       if (this.tickerContainer && this.tickerContainer.nativeElement && this.track && this.track.nativeElement) {
-        const container = this.tickerContainer.nativeElement;
         const track = this.track.nativeElement;
         
-        // L'HTML ha 2 set clonati. maxScroll è la larghezza di un set.
         const setWidth = track.scrollWidth / 2;
 
         if (!this.isDragging) {
-          this.accumulator += this.autoScrollSpeed;
-          if (this.accumulator >= 1) {
-             const intPixels = Math.floor(this.accumulator);
-             container.scrollLeft += intPixels;
-             this.accumulator -= intPixels;
-          }
+          // Incrementiamo in base al tempo reale (es. 0.03 pixel al millisecondo)
+          const speedPerMs = 0.03; 
+          this.currentX += speedPerMs * dt;
         }
 
         // Loop infinito
-        if (container.scrollLeft >= setWidth) {
-          container.scrollLeft -= setWidth;
-        } else if (container.scrollLeft <= 0 && (this.isHovered || this.isDragging)) {
-          // Permette lo scroll infinito anche all'indietro
-          container.scrollLeft += setWidth;
+        if (this.currentX >= setWidth) {
+          this.currentX -= setWidth;
+        } else if (this.currentX <= 0) {
+          this.currentX += setWidth;
         }
+
+        // Applichiamo la trasformazione hardware-accelerated al track
+        track.style.transform = `translate3d(-${this.currentX}px, 0, 0)`;
       }
       this.animationFrameId = requestAnimationFrame(loop);
     };
@@ -90,23 +95,27 @@ export class SkillsTicker implements OnInit, OnDestroy {
   onMouseLeave() {
     this.isHovered = false;
     this.isDragging = false;
-    this.accumulator = 0;
   }
 
   onWheel(event: WheelEvent) {
-    if (this.tickerContainer) {
-      // Se si usa la rotellina verticale, la trasformiamo in orizzontale
-      if (event.deltaY !== 0) {
-        event.preventDefault(); // Previene lo scroll della pagina mentre si scorrono le tecnologie
-        this.tickerContainer.nativeElement.scrollLeft += event.deltaY;
+    if (this.track && this.track.nativeElement) {
+      if (event.deltaY !== 0 || event.deltaX !== 0) {
+        event.preventDefault(); // Previene lo scroll della pagina
+        const delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
+        this.currentX += delta * 0.5; // Regola la sensibilità
+        
+        // Assicuriamo il wrap during fast wheel scrolling
+        const setWidth = this.track.nativeElement.scrollWidth / 2;
+        if (this.currentX < 0) this.currentX += setWidth;
+        if (this.currentX >= setWidth) this.currentX -= setWidth;
       }
     }
   }
 
   onMouseDown(event: MouseEvent) {
     this.isDragging = true;
-    this.startX = event.pageX - this.tickerContainer.nativeElement.offsetLeft;
-    this.scrollLeft = this.tickerContainer.nativeElement.scrollLeft;
+    this.startX = event.pageX;
+    this.startXPos = this.currentX;
   }
 
   onMouseUp() {
@@ -116,8 +125,15 @@ export class SkillsTicker implements OnInit, OnDestroy {
   onMouseMove(event: MouseEvent) {
     if (!this.isDragging) return;
     event.preventDefault();
-    const x = event.pageX - this.tickerContainer.nativeElement.offsetLeft;
-    const walk = (x - this.startX) * 1.5; // Moltiplicatore velocità trascinamento
-    this.tickerContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
+    const x = event.pageX;
+    const walk = (x - this.startX) * 1.5; 
+    this.currentX = this.startXPos - walk;
+    
+    // Wrap during drag
+    if (this.track && this.track.nativeElement) {
+      const setWidth = this.track.nativeElement.scrollWidth / 2;
+      if (this.currentX < 0) this.currentX += setWidth;
+      if (this.currentX >= setWidth) this.currentX -= setWidth;
+    }
   }
 }
