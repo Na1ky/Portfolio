@@ -1,54 +1,44 @@
-<!-- HERO SECTION -->
-<section class="hero-section">
-  <div class="container-fluid px-4 px-xl-5">
+<section class="home-hero" aria-label="Nicolas Dominici">
+  <img class="home-hero__background" src="/assets/cover.png" alt="" aria-hidden="true" />
 
-    <div class="row align-items-center justify-content-between g-4 g-lg-0">
-
-      <!-- ===== TEXT COLUMN ===== -->
-      <div class="col-12 col-lg-5 text-center text-lg-start text-section"
-           data-aos="fade-right" data-aos-delay="200">
-
-        <span class="badge-custom" [innerHTML]="'HOME.BADGE' | translate"></span>
-
-        <h1 class="title-main">
-          {{ 'HOME.TITLE_1' | translate }}
-          <br />
-          <span class="highlight">{{ 'HOME.TITLE_2' | translate }}</span>
-        </h1>
-
-        <p class="subtitle">
-          {{ 'HOME.SUBTITLE_1' | translate }}
-          {{ 'HOME.SUBTITLE_2' | translate }}
-        </p>
-
-        <div class="tech-stack justify-content-center justify-content-lg-start">
-          <span class="tag">Full Stack (.NET/MEAN)</span>
-          <span class="tag">Sistemi &amp; Reti</span>
-          <span class="tag">Sviluppo Desktop</span>
-        </div>
-
-        <div class="buttons justify-content-center justify-content-lg-start">
-          <button class="btn btn-primary neon-red neon-red-hover"
-                  [routerLink]="['/portfolio']">
-            {{ 'HOME.BTN_PORTFOLIO' | translate }}
-          </button>
-          <button class="btn btn-outline-light neon-red neon-red-hover"
-                  [routerLink]="['/contact']">
-            {{ 'HOME.BTN_CONTACT' | translate }}
-          </button>
-        </div>
-
-      </div>
-
-      <!-- ===== IMAGE COLUMN ===== -->
-      <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end"
-           data-aos="fade-left" data-aos-delay="300">
-        <img src="/assets/home.gif"
-             class="hero-img img-fluid"
-             alt="Illustrazione laptop">
-      </div>
-
+  <div class="home-hero__name" aria-label="Nicolas Dominici">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="1300"
+      data-aos-easing="ease-out-cubic"
+      data-aos-mirror="true"
+    >
+      <span class="home-hero__word home-hero__word--first">
+        NICOLAS
+      </span>
     </div>
+    <div
+      data-aos="fade-left"
+      data-aos-duration="1300"
+      data-aos-easing="ease-out-cubic"
+      data-aos-mirror="true"
+    >
+      <span class="home-hero__word home-hero__word--last">
+        DOMINICI
+      </span>
+    </div>
+  </div>
+
+  <img
+    class="home-hero__person"
+    src="/assets/hero-person.png"
+    alt="Profilo in silhouette di Nicolas Dominici"
+  />
+
+  <div
+    class="home-hero__caption"
+    data-aos="fade-up"
+    data-aos-delay="350"
+    data-aos-duration="1100"
+    data-aos-mirror="true"
+  >
+    <p>FULL-STACK &amp; SOFTWARE DEVELOPER</p>
+    <span aria-hidden="true">&lt;/&gt;</span>
   </div>
 </section>
 

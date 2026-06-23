@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { SeoService } from '../../../core/services/seo.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -7,7 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink,
     AboutComponent,
     TranslateModule
   ],

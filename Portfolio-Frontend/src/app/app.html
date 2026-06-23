@@ -2,7 +2,13 @@
 @if (loading) {
   <app-loading class="loader-overlay" (loadingfinished)="onLoadingFinished($event)"></app-loading>
 }
-<div [style.opacity]="loading ? '0' : '1'" [style.height]="loading ? '100vh' : 'auto'" [style.overflow]="loading ? 'hidden' : 'visible'" style="transition: opacity 0.8s ease-in-out;">
+<div
+  [class.app-content--ready]="!loading"
+  [style.opacity]="loading ? '0' : '1'"
+  [style.height]="loading ? '100vh' : 'auto'"
+  [style.overflow]="loading ? 'hidden' : 'visible'"
+  style="transition: opacity 0.8s ease-in-out;"
+>
   <app-navbar></app-navbar>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

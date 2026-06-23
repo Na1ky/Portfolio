@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { DataService } from '../../../core/services/data.service';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-loading',
@@ -8,10 +9,14 @@ import { DataService } from '../../../core/services/data.service';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css']
 })
-export class LoadingComponent implements OnInit {
+export class LoadingComponent implements OnInit, AfterViewInit {
   @Output() loadingfinished = new EventEmitter<void>();
 
   constructor(public dataService: DataService) { }
+
+  ngAfterViewInit() {
+    AOS.refreshHard();
+  }
 
   async ngOnInit() {
     await this.waitForImagesToLoad();

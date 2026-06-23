@@ -6,4 +6,4 @@ import AOS from 'aos';
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
 
-AOS.init({duration: 2000});
+AOS.init({ duration: 2000 });

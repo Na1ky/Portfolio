@@ -103,6 +103,6 @@ export class AboutComponent implements AfterViewInit, OnInit {
   }
 
   goToCv() {
-    window.location.href = 'https://portfolio-server-green-beta.vercel.app/cv/CV_24_03_2026.pdf';
+    window.location.href = 'https://drive.google.com/file/d/1x00rfaZxNa4FDzSsGPEhw0XGCa4TuwAl/view?usp=sharing';
   }
 }
