@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, OnDestroy, NgZone, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../../core/services/data.service';
 import { ITechnologies } from '../../../core/models/technologies.model';
@@ -10,7 +10,7 @@ import { ITechnologies } from '../../../core/models/technologies.model';
   templateUrl: './skills-ticker.html',
   styleUrl: './skills-ticker.css',
 })
-export class SkillsTicker implements OnInit, AfterViewInit, OnDestroy {
+export class SkillsTicker implements OnInit, OnDestroy {
   technologies: ITechnologies[] = [];
   
   @ViewChild('tickerContainer') tickerContainer!: ElementRef<HTMLDivElement>;
@@ -25,16 +25,25 @@ export class SkillsTicker implements OnInit, AfterViewInit, OnDestroy {
   private autoScrollSpeed: number = 0.5; // Default slow speed
   private accumulator: number = 0;
 
-  constructor(private dataService: DataService, private ngZone: NgZone) {}
+  constructor(
+    private dataService: DataService, 
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   async ngOnInit() {
     this.technologies = await this.dataService.getTechnologies();
-  }
-
-  ngAfterViewInit() {
-    this.ngZone.runOutsideAngular(() => {
-      this.startAnimation();
-    });
+    // Forza l'aggiornamento del DOM per rendere subito disponibile il contenitore
+    this.cdr.detectChanges();
+    
+    if (this.technologies.length > 0) {
+      // Usiamo un piccolo timeout per assicurarci che l'HTML sia stato completamente renderizzato
+      setTimeout(() => {
+        this.ngZone.runOutsideAngular(() => {
+          this.startAnimation();
+        });
+      }, 50);
+    }
   }
 
   ngOnDestroy() {
