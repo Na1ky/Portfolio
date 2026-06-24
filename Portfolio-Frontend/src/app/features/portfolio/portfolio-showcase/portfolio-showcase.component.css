@@ -226,6 +226,9 @@ app-tech-stack-card:hover {
     grid-template-columns: 1fr;
     width: min(100%, 360px);
     border-radius: 18px;
+    /* Disabilita backdrop-filter su mobile (causa scroll lag) */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .custom-tab-btn {
@@ -239,6 +242,9 @@ app-tech-stack-card:hover {
 
   .category-group {
     padding: 30px 20px;
+    /* Disabilita backdrop-filter su mobile */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .category-header-wrapper {

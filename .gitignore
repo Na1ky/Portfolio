@@ -17,7 +17,6 @@ coverage/
 
 # --- Environment & Hosting ---
 .env
-.env.*
 .env.local
 .vercel
 

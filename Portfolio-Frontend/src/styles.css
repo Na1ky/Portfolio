@@ -33,16 +33,17 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #050505;
+  /* Rimosso background-attachment: fixed perché causa scroll lag su mobile */
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(20, 0, 0, 0.8) 0%, transparent 40%),
     radial-gradient(circle at 85% 20%, rgba(15, 0, 0, 0.7) 0%, transparent 45%),
     radial-gradient(circle at 50% 65%, rgba(25, 0, 0, 0.8) 0%, transparent 55%),
     radial-gradient(circle at 80% 90%, rgba(10, 0, 0, 0.6) 0%, transparent 40%),
     radial-gradient(circle at 20% 85%, rgba(12, 0, 0, 0.7) 0%, transparent 45%);
-  background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 body::before {
@@ -57,6 +58,9 @@ body::before {
     repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100px);
   pointer-events: none;
   opacity: 0.08;
+  /* Promuove su layer GPU separato evitando repaint durante lo scroll */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ---------------- TYPOGRAPHY GLOBALE ---------------- */
@@ -70,6 +74,16 @@ h1, h2, h3, h4, h5, h6, p, span {
 @media(max-width: 768px) {
   body {
     font-size: 14px;
+    /* Forza il background statico su mobile per eliminare il lag di scroll */
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(20, 0, 0, 0.8) 0%, transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(15, 0, 0, 0.7) 0%, transparent 45%),
+      radial-gradient(circle at 50% 65%, rgba(25, 0, 0, 0.8) 0%, transparent 55%);
+  }
+
+  /* Disabilita backdrop-filter su mobile (troppo pesante) */
+  body::before {
+    display: none;
   }
 
   [data-aos^='fade'][data-aos^='fade'] {

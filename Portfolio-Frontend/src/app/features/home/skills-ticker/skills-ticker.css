@@ -7,6 +7,8 @@
   /* Maschera CSS per la dissolvenza ai lati, funziona su qualsiasi sfondo */
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  /* Permette scroll verticale della pagina anche toccando il ticker */
+  touch-action: pan-y;
 }
 
 .skills-ticker-container {
@@ -14,6 +16,8 @@
   overflow: hidden;
   padding: 1rem 0;
   cursor: grab;
+  /* touch-action è gestito dinamicamente via JS in base alla direzione dello swipe */
+  touch-action: pan-y;
 }
 
 .skills-ticker-container::-webkit-scrollbar {
@@ -28,6 +32,8 @@
   display: flex;
   width: max-content;
   will-change: transform;
+  /* Promuove su layer GPU per animazioni fluide */
+  transform: translateZ(0);
 }
 
 .skill-item {

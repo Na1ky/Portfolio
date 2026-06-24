@@ -6,7 +6,10 @@
        (wheel)="onWheel($event)"
        (mousedown)="onMouseDown($event)"
        (mouseup)="onMouseUp()"
-       (mousemove)="onMouseMove($event)">
+       (mousemove)="onMouseMove($event)"
+       (touchstart)="onTouchStart($event)"
+       (touchmove)="onTouchMove($event)"
+       (touchend)="onTouchEnd()">
     <div class="skills-ticker-track" #track>
       <!-- Original list -->
       <div class="skill-item" *ngFor="let tech of technologies">

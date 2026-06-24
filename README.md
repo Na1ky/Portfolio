@@ -45,7 +45,7 @@ Il sito è strutturato come una **Single Page Application (SPA)** con routing cl
 
 Il progetto nasce dalla volontà di avere un portfolio non solo "bello da vedere", ma **realmente funzionante**, con un'infrastruttura backend reale, chiamate API, gestione degli errori e un deploy professionale.
 
-> 🏫 Realizzato durante il percorso scolastico presso l'**ITIS**, nel contesto dell'indirizzo **Informatica e Telecomunicazioni**.
+> 🏫 Realizzato durante il percorso scolastico presso l'**IIS**, nel contesto dell'indirizzo **Informatica e Telecomunicazioni**.
 
 ---
 

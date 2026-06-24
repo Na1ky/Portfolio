@@ -23,6 +23,13 @@ export class SkillsTicker implements OnInit, OnDestroy {
   private startXPos: number = 0;
   private currentX: number = 0;
   
+  // Touch tracking
+  private touchStartX: number = 0;
+  private touchStartY: number = 0;
+  private touchStartXPos: number = 0;
+  private isTouchDragging: boolean = false;
+  private isHorizontalSwipe: boolean | null = null; // null = non ancora determinato
+  
   private autoScrollSpeed: number = 0.5; // Default slow speed
 
   constructor(
@@ -67,7 +74,7 @@ export class SkillsTicker implements OnInit, OnDestroy {
         
         const setWidth = track.scrollWidth / 2;
 
-        if (!this.isDragging) {
+        if (!this.isDragging && !this.isTouchDragging) {
           // Incrementiamo in base al tempo reale (es. 0.03 pixel al millisecondo)
           const speedPerMs = 0.03; 
           this.currentX += speedPerMs * dt;
@@ -135,5 +142,52 @@ export class SkillsTicker implements OnInit, OnDestroy {
       if (this.currentX < 0) this.currentX += setWidth;
       if (this.currentX >= setWidth) this.currentX -= setWidth;
     }
+  }
+
+  // -------------------------------------------------------
+  // TOUCH EVENTS (supporto mobile per trascinamento ticker)
+  // -------------------------------------------------------
+
+  onTouchStart(event: TouchEvent) {
+    const touch = event.touches[0];
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+    this.touchStartXPos = this.currentX;
+    this.isTouchDragging = false;
+    this.isHorizontalSwipe = null; // reset: non sappiamo ancora la direzione
+  }
+
+  onTouchMove(event: TouchEvent) {
+    if (!event.touches[0]) return;
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - this.touchStartX;
+    const deltaY = touch.clientY - this.touchStartY;
+
+    // Determiniamo la direzione dello swipe al primo movimento significativo
+    if (this.isHorizontalSwipe === null && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
+      this.isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY);
+    }
+
+    // Se è uno swipe verticale, non facciamo nulla (la pagina scorrerà normalmente)
+    if (this.isHorizontalSwipe === false) return;
+
+    // Se è orizzontale, controlliamo il ticker e blocchiamo lo scroll verticale
+    if (this.isHorizontalSwipe === true) {
+      event.preventDefault(); // Blocca lo scroll verticale della pagina
+      this.isTouchDragging = true;
+      this.currentX = this.touchStartXPos - deltaX * 1.2;
+
+      // Wrap
+      if (this.track && this.track.nativeElement) {
+        const setWidth = this.track.nativeElement.scrollWidth / 2;
+        if (this.currentX < 0) this.currentX += setWidth;
+        if (this.currentX >= setWidth) this.currentX -= setWidth;
+      }
+    }
+  }
+
+  onTouchEnd() {
+    this.isTouchDragging = false;
+    this.isHorizontalSwipe = null;
   }
 }
