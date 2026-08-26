@@ -390,9 +390,3 @@ I certificati vengono ordinati lato backend per data (`date_achieved` o `created
   <a href="https://github.com/NicolasDominici">🐙 GitHub</a><br>
   <a href="https://linkedin.com/in/nicolas-dominici">💼 LinkedIn</a>
 </p>
-
----
-
-<p align="center">
-  Fatto con ❤️ da <strong>Dominici Nicolas</strong> · 2024–2026
-</p>
