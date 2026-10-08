@@ -4,6 +4,8 @@ import { corsMiddleware, errorHandler } from "./src/middleware/corsMiddleware";
 import certificatesRouter from "./src/routes/certificates";
 import technologiesRouter from "./src/routes/technologies";
 import projectsRouter from "./src/routes/projects";
+import adminAuthRouter from "./src/routes/adminAuth";
+import adminContentRouter from "./src/routes/adminContent";
 import path from "path";
 import fs from "fs";
 
@@ -31,10 +33,17 @@ app.use("/img", express.static(path.join(staticDir, "img")));
 app.use("/cv", express.static(path.join(staticDir, "cv")));
 app.use(express.static(staticDir));
 
+// The Vercel function imports this Express app; connect lazily for each cold start.
+app.use((req, res, next) => {
+    connectDB().then(() => next()).catch(next);
+});
+
 // API Routes
 app.use("/api/certificates", certificatesRouter);
 app.use("/api/technologies", technologiesRouter);
 app.use("/api/projects", projectsRouter);
+app.use("/api/admin/auth", adminAuthRouter);
+app.use("/api/admin", adminContentRouter);
 
 // Health check
 app.get("/health", (req: Request, res: Response) => {
@@ -44,7 +53,7 @@ app.get("/health", (req: Request, res: Response) => {
 // Error handler
 app.use(errorHandler);
 
-// Start server
+// Local development server. Vercel imports the exported Express app instead.
 const startServer = async () => {
     try {
         await connectDB();
@@ -60,10 +69,13 @@ const startServer = async () => {
 };
 
 // Graceful shutdown
-process.on("SIGINT", async () => {
-    console.log("\n⏹️  Spegnimento server...");
-    await disconnectDB();
-    process.exit(0);
-});
+if (require.main === module) {
+    startServer();
+    process.on("SIGINT", async () => {
+        console.log("\n⏹️  Spegnimento server...");
+        await disconnectDB();
+        process.exit(0);
+    });
+}
 
-startServer();
+export default app;

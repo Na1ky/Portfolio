@@ -4,6 +4,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { loaderInterceptor } from './core/interceptors/loader.interceptor';
+import { adminCredentialsInterceptor } from './core/interceptors/admin-credentials.interceptor';
 
 import { routes } from './app.routes';
 
@@ -18,7 +19,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled'
       })
     ),
-    provideHttpClient(withInterceptors([loaderInterceptor])),
+    provideHttpClient(withInterceptors([loaderInterceptor, adminCredentialsInterceptor])),
     provideTranslateService({
       fallbackLang: 'it',
     }),

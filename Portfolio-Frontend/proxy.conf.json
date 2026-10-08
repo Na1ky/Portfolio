@@ -1,7 +1,7 @@
 {
   "/api": {
-    "target": "https://portfolio-server-green-beta.vercel.app",
-    "secure": true,
+    "target": "http://localhost:3100",
+    "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   }

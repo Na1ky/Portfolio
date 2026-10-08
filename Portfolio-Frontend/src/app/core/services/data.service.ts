@@ -24,7 +24,7 @@ export class DataService {
   }
 
   private apiUrl(path: string): string {
-    return `${this.apiBaseUrl}/api/${path}`;
+    return `${this.apiBaseUrl}/${path}`;
   }
 
   private getCertificateTimestamp(certificate: ICertificate): number {
