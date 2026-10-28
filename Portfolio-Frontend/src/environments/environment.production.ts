@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiBaseUrl: '',
+  apiBaseUrl: '/api',
+  githubBaseUrl: 'https://api.github.com/users/Na1ky',
 };

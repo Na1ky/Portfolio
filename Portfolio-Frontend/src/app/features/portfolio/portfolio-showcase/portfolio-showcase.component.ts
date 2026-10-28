@@ -50,7 +50,7 @@ export class PortfolioShowcaseComponent implements OnInit {
         locale: 'it_IT'
       });
     }
-    
+
 
     try {
       const [resProjects, resCertificates, resTech, resCategories] = await Promise.all([
@@ -61,6 +61,7 @@ export class PortfolioShowcaseComponent implements OnInit {
       ]);
 
       this.projects = resProjects;
+      console.log(this.projects);
       this.certificates = resCertificates;
       this.Technologies = resTech;
       this.categories = resCategories;
@@ -68,7 +69,7 @@ export class PortfolioShowcaseComponent implements OnInit {
     } catch (error) {
       console.error('Errore nel recupero dei dati:', error);
     } finally {
-      
+
       this.cdr.detectChanges();
     }
   }

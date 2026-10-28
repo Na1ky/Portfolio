@@ -36,7 +36,7 @@
 
     @case ('projects') {
     <div class="row g-4" data-aos="fade-up">
-      @for (project of projects; track project._id) {
+      @for (project of projects; track project.id) {
       <div class="col-lg-4 col-md-6 card-anim-wrapper">
         <app-project-card [project]="project"></app-project-card>
       </div>

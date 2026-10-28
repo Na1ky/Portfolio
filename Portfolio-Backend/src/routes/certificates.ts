@@ -9,6 +9,7 @@ const router = Router();
 router.get("/", async (req: Request, res: Response) => {
     try {
         const data = await getCertificates();
+        console.log(data);
         res.json(data);
     } catch (error) {
         console.error("Errore:", error);

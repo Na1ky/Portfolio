@@ -2,12 +2,12 @@
 
   <!-- Image Carousel Section -->
   <div class="card-media">
-    <div [id]="'project-' + project._id" class="carousel slide" data-bs-ride="carousel">
+    <div [id]="'project-' + project.id" class="carousel slide" data-bs-ride="carousel">
 
       <div class="carousel-indicators">
         @for(image of project.image_url; track $index){
         <button type="button"
-          [attr.data-bs-target]="'#project-' + project._id"
+          [attr.data-bs-target]="'#project-' + project.id"
           [attr.data-bs-slide-to]="$index"
           [class.active]="$index === 0">
         </button>
@@ -23,14 +23,14 @@
       </div>
 
       <!-- Controls -->
-      <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#project-' + project._id"
+      <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#project-' + project.id"
         data-bs-slide="prev">
         <span class="control-icon">
           <i class="bi bi-chevron-left"></i>
         </span>
       </button>
 
-      <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#project-' + project._id"
+      <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#project-' + project.id"
         data-bs-slide="next">
         <span class="control-icon">
           <i class="bi bi-chevron-right"></i>
@@ -44,27 +44,27 @@
 
   <!-- Card Content -->
   <div class="card-content">
-    <h3 class="card-title">{{ project.title }}</h3>
+    <h3 class="card-title">{{ project.name }}</h3>
 
     <p class="card-description">{{ project.description }}</p>
 
     <div class="tech-tags">
       @for(t of project.technologies_used; track $index){
-      <span class="tech-tag">{{ t }}</span>
+        <span class="tech-tag">{{ t }}</span>
       }
     </div>
 
     <div class="card-actions">
-      <a href="{{project.details}}" class="btn-primary-card">
+      <a href="{{project.html_url}}" class="btn-primary-card">
         <i class="bi bi-arrow-up-right me-2"></i>{{ 'PORTFOLIO.CARDS.DETAILS' | translate }}
       </a>
-      @if(project.demo_url){
-      <a href="{{project.demo_url}}" class="btn-ghost-card" target="_blank">
+      @if(project.website_url){
+      <a href="{{project.website_url}}" class="btn-ghost-card" target="_blank">
         <i class="bi bi-play-circle me-2"></i>Demo
       </a>
       }
-      @if (project.download) {
-      <a [href]="project.download" class="btn-ghost-card" [attr.download]="''">
+      @if (project.downloads_url) {
+      <a [href]="project.downloads_url" class="btn-ghost-card" [attr.download]="''">
         <i class="bi bi-download me-2"></i>{{ 'PORTFOLIO.CARDS.DOWNLOAD' | translate }}
       </a>
       }
